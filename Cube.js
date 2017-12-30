@@ -49,7 +49,7 @@ bot.on("message", function(message) {
                         }
                         if (member.bannable) {
                             member.ban(sebep)
-                            message.channel.send("<@" + member.id + ">, **sunucudan başarıyla" + sebep + " sebebiyle yasaklandı!**");
+                            message.channel.send("<@" + member.id + ">, **sunucudan başarıyla `" + sebep + "` sebebiyle yasaklandı!**");
                         }
                         else {
                             message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
@@ -76,7 +76,7 @@ bot.on("message", function(message) {
                         }
                         if (atilacakmember.bannable) {
                             atilacakmember.kick(sebep)
-                            message.channel.send("<@" + atilacakmember.id + ">, **sunucudan başarıyla" + sebep + " sebebiyle atıldı!**");
+                            message.channel.send("<@" + atilacakmember.id + ">, **sunucudan başarıyla `" + sebep + "` sebebiyle atıldı!**");
                         }
                         else {
                             message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
