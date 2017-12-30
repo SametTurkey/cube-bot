@@ -95,7 +95,13 @@ bot.on("message", function(message) {
             if (!args[1] == "") {
                 var tavsiye = args.join(" ").replace("tavsiye").replace(" ", "").replace("undefined", "")
                 var webhook = new Discord.WebhookClient("396661614402600960", process.env.TAVSIYE_TOKEN)
-                webhook.send(tavsiye);
+                var embed = new Discord.RichEmbed()
+                    .setAuthor(message.author.username, message.author.avatarURL)
+                    .addField("Tavsiye", tavsiye)
+                    .setColor(3447003)
+                    .setImage(message.author.avatarURL)
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                webhook.send(embed);
             }
             break
         case "avatar":
