@@ -11,7 +11,7 @@ var bot = new Discord.Client();
 bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
-    bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/lirik', 1);
+    bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/discordapp', 1);
 });
 
 function sleep(millis) {
