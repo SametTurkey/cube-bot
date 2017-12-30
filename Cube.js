@@ -99,7 +99,7 @@ bot.on("message", function(message) {
                     .setAuthor(message.author.username, message.author.avatarURL)
                     .addField("Tavsiye", tavsiye)
                     .setColor(3447003)
-                    .setImage(message.author.avatarURL)
+                    .setThumbnail(message.author.avatarURL)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 webhook.send(embed);
             }
