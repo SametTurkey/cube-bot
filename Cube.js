@@ -685,6 +685,6 @@ bot.on("message", function(message) {
     }
 });
 
-bot.login(Token);
+bot.login(process.env.BOT_TOKEN);
 
 
