@@ -25,15 +25,15 @@ bot.on("guildDelete", function(guild) {
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
-bot.on("guildMemberAdd", (guild, member) {
-    if (guild.channels.first().type == "text") {
-        guild.channels.first().send("| :inbox_tray: | **" + member.Username + "** Sunucuya Giriş Yaptı!");
+bot.on("guildMemberAdd", function(member) {
+    if (member.guild.channels.first().type == "text") {
+        member.guild.channels.first().send("| :inbox_tray: | **" + member.Username + "** Sunucuya Giriş Yaptı!");
     }
 });
 
-bot.on("guildMemberLeave", (guild, member) {
-    if (guild.channels.first().type == "text") {
-        guild.channels.first().send("| :outbox_tray: | **" + member.Username + "** Sunucudan Ayrıldı!");
+bot.on("guildMemberLeave", function(member) {
+    if (member.guild.channels.first().type == "text") {
+        member.guild.channels.first().send("| :outbox_tray: | **" + member.Username + "** Sunucudan Ayrıldı!");
     }
 });
 
