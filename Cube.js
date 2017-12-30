@@ -91,6 +91,12 @@ bot.on("message", function(message) {
                 }
             }
             break
+        case "tavsiye":
+            if (!args[1] == "") {
+                var tavsiye = args.join(" ").replace("tavsiye").replace(" ", "").replace("undefined", "")
+                var webhook = new Discord.WebhookClient("396661614402600960", "sW4M9Ke5OeHK090duGAjcIJy-Ndf0K_-1AQnN2BL7HV7U2HXaS1cC6FZeHFX1VWY7lgP")
+                webhook.send(tavsiye);
+            }
         case "avatar":
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
