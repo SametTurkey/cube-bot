@@ -36,7 +36,9 @@ bot.on("message", function(message) {
             const mesaj = args.join(" ").replace("adminduyuru").replace(" ", "").replace("undefined", "")
             if (message.author.id == "273453450019471361" || message.author.id == "293006152692662273" || message.author.id == "225925576551038977") {
                 bot.guilds.forEach(function(guild) {
-                    guild.channels.first().send(mesaj);
+                    if (guild.channels.first().type == "text") {
+                        guild.channels.first().send(mesaj);
+                    }
                 });
             }
             else {
