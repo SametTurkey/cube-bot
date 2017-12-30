@@ -4,7 +4,6 @@ const os = require("os")
 const url = require("url")
 const delay = require("delay")
 
-const Token = "Mzg2OTEzMzkwNzc5NDMyOTYw.DSF5Yg.S2NRVQUBPUJBv30CKfw21NfTMqU";
 const Prefix = "c!";
 
 var bot = new Discord.Client();
