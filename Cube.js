@@ -6,6 +6,8 @@ const delay = require("delay")
 
 const Prefix = "c!";
 
+const Token
+
 var bot = new Discord.Client();
 
 bot.on("ready", function(login) {
