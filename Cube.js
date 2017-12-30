@@ -600,7 +600,6 @@ bot.on("message", function(message) {
                 .addField("Bilgi Komutları", "c!bilgi - Bot hakkında bilgiler gösterir!" + os.EOL +
                 "c!host - Host Bilgileri!" + os.EOL +
                 "c!kullanicibilgisi <kullanici> - Kullanıcı Bilgilerini Gösterir!" + os.EOL +
-                "c!level - Seviyenizi gösterir!" + os.EOL +
                 "c!kurallar - Genel kuralları gösterir!" + os.EOL +
                 "c!sunucubilgisi - Sunucu bilgilerini gösterir!" + os.EOL +
                 "c!kanalbilgisi - Kanal bilgilerini gösterir!" + os.EOL +
@@ -627,7 +626,12 @@ bot.on("message", function(message) {
                 message.react("🤖")
                 message.react("❔")
                 message.react("💖")
-                message.channel.send(embed);
+                if (!message.member.roles.some(r=>["ManageMessages"].includes(r.name))) {
+                    message.channel.send(embed);
+                }
+                else {
+                    message.author.send(embed);
+                }
                 break
         case "yazitura":
             var yazitura = message.channel.send("<:yazi:383974767742418949>").then((msg) => {
