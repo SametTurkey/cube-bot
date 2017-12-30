@@ -14,6 +14,12 @@ bot.on("ready", function(login) {
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
+bot.on("guildCreate", function(guild) {
+    if (guild.channels.first.type == "text") {
+        guild.channels.first.send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW");    
+    }
+}
+
 function sleep(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
 }
