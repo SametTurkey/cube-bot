@@ -97,6 +97,7 @@ bot.on("message", function(message) {
                 var webhook = new Discord.WebhookClient("396661614402600960", process.env.TAVSIYE_TOKEN)
                 webhook.send(tavsiye);
             }
+            break
         case "avatar":
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
