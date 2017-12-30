@@ -656,7 +656,8 @@ bot.on("message", function(message) {
                 "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
                 .addField("API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
                 "c!hastebin <yazi> - Hastebin'e yazı yükler!")
-                .addField("Diğer Komutlar", "c!davetolustur - Davet oluşturur!" + os.EOL +
+                .addField("Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
+                "c!davetolustur - Davet oluşturur!" + os.EOL +
                 "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
                 "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
                 "c!sunucuikon - Sunucu ikonunu gösterir!" + os.EOL +
