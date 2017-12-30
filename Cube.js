@@ -27,13 +27,13 @@ bot.on("guildDelete", function(guild) {
 
 bot.on("guildMemberAdd", function(member) {
     if (member.guild.channels.first().type == "text") {
-        member.guild.channels.first().send("| :inbox_tray: | **" + member + "** Sunucuya Giriş Yaptı!");
+        member.guild.channels.first().send("| :inbox_tray: | **" + member.user.username + "** Sunucuya Giriş Yaptı!");
     }
 });
 
 bot.on("guildMemberLeave", function(member) {
     if (member.guild.channels.first().type == "text") {
-        member.guild.channels.first().send("| :outbox_tray: | **" + member + "** Sunucudan Ayrıldı!");
+        member.guild.channels.first().send("| :outbox_tray: | **" + member.user.username + "** Sunucudan Ayrıldı!");
     }
 });
 
