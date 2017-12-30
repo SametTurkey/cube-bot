@@ -567,6 +567,67 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
+        case "tas":
+            message.react("🌑")
+            var randomresponse = ["Taş", "Kağıt", "Makas"]
+            if (randomresponse[Math.floor(Math.random() * randomresponse.length)] == "Taş") {
+                message.channel.send(":new_moon: Taş. | **Sen Kazandın**");
+            }
+            else if (randomresponse[Math.floor(Math.random() * randomresponse.length)] == "Kağıt") {
+                message.channel.send(":page_facing_up: Kağıt. | **Eşitiz**");
+            }
+            else if (randomresponse[Math.floor(Math.random() * randomresponse.length)] == "Makas") {
+                message.channel.send(":scissors: Makas. | **Ben Kazandım**");
+            }
+            break
+        case "yardim":
+            var embed = new EmbedBuilder()
+                .setAuthor(bot.user.username, bot.user.avatarURL)
+                .setTitle("Yardım Komutları")
+                .addField("Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
+                "c!sunucuduyuru <mesaj> - Sunucudaki bütün kanallara mesaj atar!" + os.EOL +
+                "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
+                "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
+                "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
+                .addField("Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
+                "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
+                "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
+                "c!makas - Taş-Kağıt-Makas!" + os.EOL +
+                "c!slots - Slots Oyunu!" + os.EOL +
+                "c!sorusor <mesaj> - Bota soru sorun!" + os.EOL +
+                "c!tas - Taş-Kağıt-Makas!" + os.EOL +
+                "c!yazitura - Yazı Tura Oyunu!")
+                .addField("Bilgi Komutları", "c!bilgi - Bot hakkında bilgiler gösterir!" + os.EOL +
+                "c!host - Host Bilgileri!" + os.EOL +
+                "c!kullanicibilgisi <kullanici> - Kullanıcı Bilgilerini Gösterir!" + os.EOL +
+                "c!level - Seviyenizi gösterir!" + os.EOL +
+                "c!kurallar - Genel kuralları gösterir!" + os.EOL +
+                "c!sunucubilgisi - Sunucu bilgilerini gösterir!" + os.EOL +
+                "c!kanalbilgisi - Kanal bilgilerini gösterir!" + os.EOL +
+                "c!yardim - Bu komut listesini gösterir!")
+                .addField("Matematik Komutları", "c!topla <sayi> <sayi> - İki sayıyı toplar!" + os.EOL +
+                "c!cikar <sayi> <sayi> - İki sayıyı çıkarır!" + os.EOL +
+                "c!carp <sayi> <sayi> - İki sayıyı çarpar!" + os.EOL +
+                "c!bol <sayi> <sayi> - İki sayıyı böler!")
+                .addField("Oyun Komutları", "c!mcsunucu <ip> - Minecraft sunucu durumunu gösterir!" + os.EOL + 
+                "c!mcavatar <kullaniciadi> - Minecraft avatarını gösterir!" + os.EOL +
+                "c!mcbasarim <baslik> <yazi> - Minecraft başarımı oluşturur!" + os.EOL +
+                "c!mcskin <kullaniciadi> - Minecraft skinini gösterir!" + os.EOL +
+                "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
+                .addField("API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
+                "c!hastebin <yazi> - Hastebin'e yazı yükler!")
+                .addField("Diğer Komutlar", "c!davetolustur - Davet oluşturur!" + os.EOL +
+                "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
+                "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
+                "c!sunucuikon - Sunucu ikonunu gösterir!" + os.EOL +
+                "c!zaman - Şimdiki zamanı gösterir!")
+                .setColor(3447003)
+                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setThumbnail(bot.user.avatarURL)
+                message.react("🤖")
+                message.react("❔")
+                message.react("💖")
+                message.channel.send(embed);
         case "yazitura":
             var yazitura = message.channel.send("<:yazi:383974767742418949>").then((msg) => {
                 var cevaplar = [
