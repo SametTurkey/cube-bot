@@ -20,6 +20,18 @@ bot.on("guildCreate", function(guild) {
     }
 });
 
+bot.on("guildMemberAdd", function(user) {
+    if (guild.channels.first().type == "text") {
+        guild.channels.first().send("| :inbox_tray: | **" + user.Username + "** Sunucuya Giriş Yaptı!");
+    }
+});
+
+bot.on("guildMemberLeave", function(user) {
+    if (guild.channels.first().type == "text") {
+        guild.channels.first().send("| :outbox_tray: | **" + user.Username + "** Sunucudan Ayrıldı!");
+    }
+});
+
 function sleep(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
 }
