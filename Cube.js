@@ -40,7 +40,7 @@ bot.on("message", function(message) {
         case "yasakla":
             const kullanici = args[1]
             let member = message.mentions.members.first();
-            if (!message.member.roles.some(r=>["Administrator"].includes(r.name))) {
+            if (!message.member.roles.some(r=>["BanMembers"].includes(r.name))) {
                 if (!args[1] == "") {
                     const sebep = args.join(" ").replace("yasakla", "").replace(args[1], "")
                     if (!args[2] == "") {
@@ -50,6 +50,33 @@ bot.on("message", function(message) {
                         if (member.bannable) {
                             member.ban(sebep)
                             message.channel.send("<@" + member.id + ">, **sunucudan başarıyla" + sebep + " sebebiyle yasaklandı!**");
+                        }
+                        else {
+                            message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
+                        }
+                    }
+                    else {
+                        message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+                    }
+                }
+                else {
+                    message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+                }
+            }
+            break
+        case "at":
+            const kullanici = args[1]
+            let member = message.mentions.members.first();
+            if (!message.member.roles.some(r=>["KickMembers"].includes(r.name))) {
+                if (!args[1] == "") {
+                    const sebep = args.join(" ").replace("yasakla", "").replace(args[1], "")
+                    if (!args[2] == "") {
+                        if (!member) {
+                            return message.channel.send("**Kullanıcı bulunamadı!**");
+                        }
+                        if (member.bannable) {
+                            member.kick(sebep)
+                            message.channel.send("<@" + member.id + ">, **sunucudan başarıyla" + sebep + " sebebiyle atıldı!**");
                         }
                         else {
                             message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
