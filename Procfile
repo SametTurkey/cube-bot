@@ -1,1 +1,1 @@
-worker: node Cube.js
+worker: node .\Cube.js
