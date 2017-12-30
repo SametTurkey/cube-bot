@@ -102,6 +102,7 @@ bot.on("message", function(message) {
                     .setThumbnail(message.author.avatarURL)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 webhook.send(embed);
+                message.channel.send(":white_check_mark: **Tavsiyeniz `" + tavsiye + "` başarıyla gönderildi!**");
             }
             break
         case "avatar":
