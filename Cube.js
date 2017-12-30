@@ -626,12 +626,7 @@ bot.on("message", function(message) {
                 message.react("🤖")
                 message.react("❔")
                 message.react("💖")
-                if (!message.member.roles.some(r=>["ManageMessages"].includes(r.name))) {
-                    message.channel.send(embed);
-                }
-                else {
-                    message.author.send(embed);
-                }
+                message.channel.send(embed);
                 break
         case "yazitura":
             var yazitura = message.channel.send("<:yazi:383974767742418949>").then((msg) => {
