@@ -581,7 +581,7 @@ bot.on("message", function(message) {
             }
             break
         case "yardim":
-            var embed = new EmbedBuilder()
+            var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
                 .setTitle("Yardım Komutları")
                 .addField("Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
