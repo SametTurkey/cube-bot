@@ -151,7 +151,16 @@ bot.on("message", function(message) {
                 .setThumbnail(bot.user.avatarURL)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
             message.channel.send(embed)
-            break 
+            break
+        case "katil":
+            if (message.author.voiceChannel) {
+                message.author.voiceChannel.join().then(connection => {
+                    message.channel.send("**Kanala başarıyla bağlanıldı!**");
+                });
+            }
+            else {
+                message.channel.send("**Öncelikle bir kanala bağlanmalısınız!**");
+            }
         case "bol":
             if (!args[1] == "") {
                 if (!args[2] == "") {
