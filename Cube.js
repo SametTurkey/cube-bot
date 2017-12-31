@@ -77,7 +77,7 @@ bot.on("roleUpdate", function(oldrole, newrole) {
             .setFooter("Cube | SametTurkey#0286 | " + new Date())
         newrole.guild.channels.first().send(embed);
     }
-}
+});
 
 function sleep(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
