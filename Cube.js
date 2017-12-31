@@ -3,10 +3,25 @@ const request = require("request");
 const os = require("os")
 const url = require("url")
 const delay = require("delay")
+const ytdl = require("ytdl-core")
 
 const Prefix = "c!";
 
 var bot = new Discord.Client();
+var servers = {}
+
+function play(connection, message) {
+    var server = servers[message.guild.id]
+    
+    server.dispatcher = connection.play(ytdl(server.queue[0], {filter: audioonly})))
+    
+    server.queue.shift()
+    
+    server.dispatcher.on("end", function() {
+        if (server.queue[0])} play(connection, message)
+        else connection.disconnect()
+    }
+}
 
 bot.on("ready", function(login) {
     console.log("Hazır!");
@@ -151,6 +166,36 @@ bot.on("message", function(message) {
                 .setThumbnail(bot.user.avatarURL)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
             message.channel.send(embed)
+            break
+        case "oynat":
+            if (!args[1] == "") {
+                if (!message.member.voiceConnection) {
+                    return message.channel.send("**Öncelikle bir kanala bağlanmalısınız!**");
+                }
+                
+                if (!servers[message.guild.id]) servers[message.guild.id] = {
+                    queue: []
+                }
+            
+                var server = servers[message.guild.id]
+            
+                if (!message.member.voiceConnection) message.member.voiceChannel().join().then(function(connection) => {
+                    play(connection, message)
+                });
+            }
+            else {
+                message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+            }
+            break
+        case "atla":
+            var server = servers[message.guild.id]
+            
+            if (server.dispatcher) server.dispatcher.end()
+            break
+        case "durdur":
+            var server = servers[message.guild.id]
+        
+            if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect()
             break
         case "bol":
             if (!args[1] == "") {
