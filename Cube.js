@@ -45,6 +45,10 @@ bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
     if (!message.content.startsWith(Prefix)) return;
+    
+    if (!message.author.bot) {
+        
+    }
 
     var args = message.content.substring(Prefix.length).split(" ")
 
