@@ -3,6 +3,7 @@ const request = require("request");
 const os = require("os")
 const url = require("url")
 const delay = require("delay")
+const mysql = require("mysql")
 
 const Prefix = "c!";
 
@@ -18,10 +19,36 @@ bot.on("guildCreate", function(guild) {
     if (guild.channels.first().type == "text") {
         guild.channels.first().send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW");
     }
+    var con = mysql.createConnection({
+        host: process.env.VERITABANI_IP,
+        port: 3307,
+        user: process.env.VERITABANI_KULLANICI,
+        password: process.env.VERITABANI_PAROLA,
+        database: "cubediscord"
+    });
+    con.connect(function(err) {
+        var sql = "CREATE TABLE `cubediscord`.`server-" + guild.id + "` ( `id` INT NOT NULL DEFAULT '0' , `level` INT NOT NULL DEFAULT '0' ) ENGINE = InnoDB;"
+        con.query(sql) {
+            if (err) console.log(err);
+        });
+    });
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildDelete", function(guild) {
+    var con = mysql.createConnection({
+        host: process.env.VERITABANI_IP,
+        port: 3307,
+        user: process.env.VERITABANI_KULLANICI,
+        password: process.env.VERITABANI_PAROLA,
+        database: "cubediscord"
+    });
+    con.connect(function(err) {
+        var sql = "DROP TABLE `cubediscord`.`server-144`"
+        con.query(sql) {
+            if (err) console.log(err);
+        });
+    });
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
