@@ -169,7 +169,7 @@ bot.on("message", function(message) {
             break
         case "oynat":
             if (!args[1] == "") {
-                if (!message.member.voiceConnection) {
+                if (!message.member.voiceChannel) {
                     return message.channel.send("**Öncelikle bir kanala bağlanmalısınız!**");
                 }
                 
