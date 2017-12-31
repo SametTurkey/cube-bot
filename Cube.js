@@ -179,7 +179,7 @@ bot.on("message", function(message) {
             
                 var server = servers[message.guild.id]
             
-                if (!message.member.voiceConnection) message.member.voiceChannel().join().then(connection => {
+                if (!message.guild.voiceConnection) message.member.voiceChannel().join().then(connection => {
                     play(connection, message)
                 });
             }
