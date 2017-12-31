@@ -145,6 +145,7 @@ bot.on("message", function(message) {
                 .addField("Yapımcılar", "Console.Owner === Altanay#3606 ve xDuz/13/Polat#8526")
                 .addField("Altyapı", "Discord.JS (hydrabolt)")
                 .addField("Sürüm", "Yok")
+                .addField("Çalışma Süresi", bot.uptime)
                 .addField("Cube Resmi Sunucu", "https://discord.gg/eEm46bW")
                 .addField("Cube Davet Linki", "https://bit.ly/CubeDiscord")
                 .setColor(3447003)
