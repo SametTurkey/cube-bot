@@ -67,7 +67,7 @@ bot.on("guildMemberLeave", function(member) {
 bot.on("roleUpdate", function(oldrole, newrole) {
     if (newrole.guild.channels.first().type == "text") {
         var embed = new Discord.RichEmbed()
-            .setAuthor(newrole.guild.name, newrole.guild.iconURL)
+            .setAuthor("Rol Güncellemesi", newrole.guild.iconURL)
             .addField("Eski Rol İsmi", oldrole.name, true)
             .addField("Eski Rol Yetkileri", oldrole.permissions, true)
             .addField("Yeni Rol İsmi", newrole.name, true)
