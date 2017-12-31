@@ -3,7 +3,6 @@ const request = require("request");
 const os = require("os")
 const url = require("url")
 const delay = require("delay")
-const ytdl = require("ytdl-core")
 
 const Prefix = "c!";
 
