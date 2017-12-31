@@ -28,7 +28,7 @@ bot.on("guildCreate", function(guild) {
     });
     con.connect(function(err) {
         var sql = "CREATE TABLE `cubediscord`.`server-" + guild.id + "` ( `id` INT NOT NULL DEFAULT '0' , `level` INT NOT NULL DEFAULT '0' ) ENGINE = InnoDB;"
-        con.query(sql) {
+        con.query(sql, function(err) {
             if (err) console.log(err);
         });
     });
@@ -45,7 +45,7 @@ bot.on("guildDelete", function(guild) {
     });
     con.connect(function(err) {
         var sql = "DROP TABLE `cubediscord`.`server-144`"
-        con.query(sql) {
+        con.query(sql, function(err) {
             if (err) console.log(err);
         });
     });
