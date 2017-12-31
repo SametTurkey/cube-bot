@@ -139,13 +139,17 @@ bot.on("message", function(message) {
             message.channel.send(embed)
             break
         case "bilgi":
+            var calismagun = bot.uptime / 24
+            var calismasaat = bot.uptime / 60
+            var calismadakika = bot.uptime / 60 * 60
+            var calismasaniye = bot.uptime / 60 * 60 * 60
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
                 .addField("Yapımcı", "OS S. | SametTurkey#0286")
                 .addField("Yapımcılar", "Console.Owner === Altanay#3606 ve xDuz/13/Polat#8526")
                 .addField("Altyapı", "Discord.JS (hydrabolt)")
                 .addField("Sürüm", "Yok")
-                .addField("Çalışma Süresi", bot.uptime)
+                .addField("Çalışma Süresi", calismagun + " gün " + calismasaat + " saat " + calismadakika + " dakika " + calismasaniye + " saniye")
                 .addField("Cube Resmi Sunucu", "https://discord.gg/eEm46bW")
                 .addField("Cube Davet Linki", "https://bit.ly/CubeDiscord")
                 .setColor(3447003)
