@@ -161,6 +161,7 @@ bot.on("message", function(message) {
             else {
                 message.channel.send("**Öncelikle bir kanala bağlanmalısınız!**");
             }
+            break
         case "bol":
             if (!args[1] == "") {
                 if (!args[2] == "") {
