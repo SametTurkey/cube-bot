@@ -44,7 +44,7 @@ bot.on("guildDelete", function(guild) {
         database: "cubediscord"
     });
     con.connect(function(err) {
-        var sql = "DROP TABLE `cubediscord`.`server-144`"
+        var sql = "DROP TABLE `cubediscord`.`" + guild.id + "`"
         con.query(sql, function(err) {
             if (err) console.log(err);
         });
