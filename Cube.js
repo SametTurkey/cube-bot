@@ -3,7 +3,8 @@ const request = require("request");
 const os = require("os")
 const url = require("url")
 const delay = require("delay")
-const mysql = require("mysql")
+const sql = require("sqlite")
+sql.open("./level.sqlite");
 
 const Prefix = "c!";
 
@@ -89,25 +90,13 @@ bot.on("message", function(message) {
     if (!message.content.startsWith(Prefix)) return;
     
     if (!message.author.bot) {
-        //var con = mysql.createConnection({
-        //    host: process.env.VERITABANI_IP,
-        //    port: 3307,
-        //    user: process.env.VERITABANI_KULLANICI,
-        //    password: process.env.VERITABANI_PAROLA,
-        //    database: "cubediscord"
-        //});
-        //con.connect(function(err) {
-        //    var sql = "SELECT * `cubediscord`.`" + message.guild.id + "` WHERE id='" + message.author.id + "'"
-        //    con.query(sql, function(err, result, fields) {
-        //        var messages = fields.size()
-        //        if messages == 0 {
-        //            sql = "INSERT INTO `server-" + message.guild.id + "` (id) VALUES (" + message.author.id + ")"
-        //            con.query(sql, function(err, result, fields)
-        //        }
-        //        sql = "UPDATE `server-" + message.guild.id + "` SET level = " + messages - -1 + " WHERE id = " + message.author.id
-        //        con.query(sql, function(err, result, fields)
-        //    });
-        //});
+        sql.run("CREATE TABLE IF NOT EXISTS `cubediscord`.`server-" + message.guild.id + "` (id VARCHAR(18) NOT NULL, level VARCHAR(4) NOT NULL)").then(() => {
+        sql.get("SELECT * FROM `cubediscord`.`server-" + message.guild.id + "` WHERE id=" + message.author.id + "").then(row => {
+            if (!row) {
+                sql.run("INSERT INTO `cubediscord`.`server-" + message.guild.id + "` (id, level) VALUES (" + message.author.id + ", 1)")
+            }
+            sql.run("UPDATE server-" + message.guild.id + " SET level = {row.level + 1} WHERE id = " + message.author.id)  
+        }                                                                                                               
     }
 
     var args = message.content.substring(Prefix.length).split(" ")
