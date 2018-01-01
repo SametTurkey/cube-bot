@@ -121,6 +121,14 @@ bot.on("message", function(message) {
                         if (member.bannable) {
                             member.ban(sebep)
                             message.channel.send("<@" + member.id + ">, **sunucudan başarıyla `" + sebep + "` sebebiyle yasaklandı!**");
+                            var embed = new Discord.RichEmbed()
+                                .setAuthor("Cube - Yasaklama", bot.user.avatarURL)
+                                .setDescription(message.guild.name + "sunucusundan yasaklandınız!")
+                                .addField("**YASAKLAYAN: **" + "<@" + message.author.id + ">", "**SEBEP: **" + sebep)
+                                .setColor(3447003)
+                                .setThumbnail(message.author.avatarURL)
+                                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                            member.send(embed);
                         }
                         else {
                             message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
