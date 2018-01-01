@@ -3,8 +3,7 @@ const request = require("request");
 const os = require("os")
 const url = require("url")
 const delay = require("delay")
-const sql = require("sqlite")
-sql.open("./level.sqlite");
+const mysql = require("mysql")
 
 const Prefix = "c!";
 
