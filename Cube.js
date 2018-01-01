@@ -128,7 +128,7 @@ bot.on("message", function(message) {
                                 .setColor(3447003)
                                 .setThumbnail(message.author.avatarURL)
                                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
-                            member.send(embed);
+                            member.user.send(embed);
                         }
                         else {
                             message.channel.send("**Kullanıcı yasaklanamıyor. Kullanıcının yetkisi daha yüksek olabilir!**");
