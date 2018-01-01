@@ -90,13 +90,7 @@ bot.on("message", function(message) {
     if (!message.content.startsWith(Prefix)) return;
     
     if (!message.author.bot) {
-        sql.run("CREATE TABLE IF NOT EXISTS `cubediscord`.`server-" + message.guild.id + "` (id VARCHAR(18) NOT NULL, level VARCHAR(4) NOT NULL)").then(() => {
-        sql.get("SELECT * FROM `cubediscord`.`server-" + message.guild.id + "` WHERE id=" + message.author.id + "").then(row => {
-            if (!row) {
-                sql.run("INSERT INTO `cubediscord`.`server-" + message.guild.id + "` (id, level) VALUES (" + message.author.id + ", 1)")
-            }
-            sql.run("UPDATE server-" + message.guild.id + " SET level = {row.level + 1} WHERE id = " + message.author.id)  
-        }                                                                                                               
+                                                                                                             
     }
 
     var args = message.content.substring(Prefix.length).split(" ")
