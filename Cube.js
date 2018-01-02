@@ -585,15 +585,15 @@ bot.on("message", function(message) {
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .addField("**>** ID", message.guild.id, true)
                 .addField("**>** İsim", message.guild.name, true)
-                .addField("**>** Sahibi", message.guild.owner.displayName + ", (" + message.guild.owner.id + ")", true)
+                .addField("**>** Sahibi", "<@" + message.guild.owner.id + ">" + ", (" + message.guild.owner.id + ")", true)
                 .addField("**>** Bölge", message.guild.region, true)
                 .addField("**>** Kanallar", message.guild.channels.size, true)
                 .addField("**>** Üyeler", message.guild.memberCount, true)
                 .addField("**>** Roller", message.guild.roles.size, true)
-                .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
-                .addField("**>** Ana Kanalı", "#" + message.guild.channels.first().name, true)
+                .addField("**>** Ana Kanalı", "<#" + message.guild.channels.first().name + ">", true)
                 .addField("**>** Zaman Aşımı Süresi", message.guild.afkTimeout + " saniye", true)
-                .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel, true)
+                .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel.toString().replace("0", "Yok").replace("1", "Düşük").replace("2", "Orta"), true)
+                .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
                 .setColor(3447003)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 .setThumbnail(message.guild.iconURL)
@@ -859,7 +859,6 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("göt veren") > -1 ||
     message.content.toLowerCase().indexOf("bok") > -1 ||
     message.content.toLowerCase().indexOf("piç") > -1) {
-        if (message.channel.nsfw) return;
         if (message.author.bot == false) {
             message.react("😠")
             message.delete()
