@@ -68,10 +68,10 @@ bot.on("roleUpdate", function(oldrole, newrole) {
     if (newrole.guild.channels.first().type == "text") {
         var embed = new Discord.RichEmbed()
             .setAuthor("Rol Güncellemesi", newrole.guild.iconURL)
-            .addField("**>**  Eski Rol İsmi", oldrole.name, true)
-            .addField("**>**  Eski Rol Yetkileri", oldrole.permissions, true)
-            .addField("**>**  Yeni Rol İsmi", newrole.name, true)
-            .addField("**>**  Yeni Rol Yetkileri", newrole.permissions, true)
+            .addField("**>** Eski Rol İsmi", oldrole.name, true)
+            .addField("**>** Eski Rol Yetkileri", oldrole.permissions, true)
+            .addField("**>** Yeni Rol İsmi", newrole.name, true)
+            .addField("**>** Yeni Rol Yetkileri", newrole.permissions, true)
             .setColor(3447003)
             .setThumbnail(newrole.guild.iconURL)
             .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -124,7 +124,7 @@ bot.on("message", function(message) {
                             var embed = new Discord.RichEmbed()
                                 .setAuthor("Cube - Yasaklama", bot.user.avatarURL)
                                 .setDescription(message.guild.name + "sunucusundan yasaklandınız!")
-                                .addField("**>**  **YASAKLAYAN: **" + "<@" + message.author.id + ">", "**SEBEP: **" + sebep)
+                                .addField("**>** **YASAKLAYAN: **" + "<@" + message.author.id + ">", "**SEBEP: **" + sebep)
                                 .setColor(3447003)
                                 .setThumbnail(message.author.avatarURL)
                                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -176,7 +176,7 @@ bot.on("message", function(message) {
                 var webhook = new Discord.WebhookClient("396661614402600960", process.env.TAVSIYE_TOKEN)
                 var embed = new Discord.RichEmbed()
                     .setAuthor(message.author.username, message.author.avatarURL)
-                    .addField("**>**  Tavsiye", tavsiye)
+                    .addField("**>** Tavsiye", tavsiye)
                     .setColor(3447003)
                     .setThumbnail(message.author.avatarURL)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -195,12 +195,12 @@ bot.on("message", function(message) {
         case "bilgi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .addField("**>**  Yapımcı", "OS S. | SametTurkey#0286")
-                .addField("**>**  Yapımcılar", "Console.Owner === Altanay#3606 ve xDuz/13/Polat#8526")
-                .addField("**>**  Altyapı", "Discord.JS (hydrabolt)")
-                .addField("**>**  Sürüm", "Yok")
-                .addField("**>**  Cube Resmi Sunucu", "https://discord.gg/eEm46bW")
-                .addField("**>**  Cube Davet Linki", "https://bit.ly/CubeDiscord")
+                .addField("**>** Yapımcı", "OS S. | SametTurkey#0286")
+                .addField("**>** Yapımcılar", "Console.Owner === Altanay#3606 ve xDuz/13/Polat#8526")
+                .addField("**>** Altyapı", "Discord.JS (hydrabolt)")
+                .addField("**>** Sürüm", "Yok")
+                .addField("**>** Cube Resmi Sunucu", "https://discord.gg/eEm46bW")
+                .addField("**>** Cube Davet Linki", "https://bit.ly/CubeDiscord")
                 .setColor(3447003)
                 .setThumbnail(bot.user.avatarURL)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -273,9 +273,9 @@ bot.on("message", function(message) {
         case "host":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .addField("**>**  Bit", os.arch(), true)
-                .addField("**>**  Sürüm", os.release(), true)
-                .addField("**>**  Platform", os.type(), true)
+                .addField("**>** Bit", os.arch(), true)
+                .addField("**>** Sürüm", os.release(), true)
+                .addField("**>** Platform", os.type(), true)
                 .setColor(3447003)
                 .setThumbnail(bot.user.avatarURL)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -297,14 +297,14 @@ bot.on("message", function(message) {
         case "kanalbilgisi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.channel.name, message.guild.iconURL)
-                .addField("**>**  ID", message.channel.id)
+                .addField("**>** ID", message.channel.id)
                 if (message.channel.nsfw) {
-                    embed.addField("**>**  Uygunsuz", "Evet", true)
+                    embed.addField("**>** Uygunsuz", "Evet", true)
                 }
                 else {
-                    embed.addField("**>**  Uygunsuz", "Hayır", true)
+                    embed.addField("**>** Uygunsuz", "Hayır", true)
                 }
-                embed.addField("**>**  Oluşturuldu", message.channel.createdAt, true)
+                embed.addField("**>** Oluşturuldu", message.channel.createdAt, true)
                 .setColor(3447003)
                 .setThumbnail(message.guild.iconURL)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -325,16 +325,16 @@ bot.on("message", function(message) {
             //if (memberinfo) {
             //    var embed = new Discord.RichEmbed()
             //        .setAuthor(message.channel.name, message.guild.iconURL)
-            //        .addField("**>**  ID", memberinfo.id, true)
-            //        .addField("**>**  Kullanıcı Adı", memberinfo.username, true)
-            //        .addField("**>**  Kayıt Tarihi", memberinfo.createdAt, true)
+            //        .addField("**>** ID", memberinfo.id, true)
+            //        .addField("**>** Kullanıcı Adı", memberinfo.username, true)
+            //        .addField("**>** Kayıt Tarihi", memberinfo.createdAt, true)
             //        if (memberinfo.client.status.toString() == "0") {
-            //            embed.addField("**>**  Durun", "Çevrimiçi", true)
+            //            embed.addField("**>** Durun", "Çevrimiçi", true)
             //        }
             //        else {
-            //        embed.addField("**>**  Uygunsuz", "Hayır")
+            //        embed.addField("**>** Uygunsuz", "Hayır")
             //        }
-            //        embed.addField("**>**  Oluşturuldu", message.channel.createdAt)
+            //        embed.addField("**>** Oluşturuldu", message.channel.createdAt)
             //        .setColor(3447003)
             //        .setThumbnail(message.guild.iconURL)
             //        .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -347,9 +347,9 @@ bot.on("message", function(message) {
         case "kurallar":
             var embed = new Discord.RichEmbed()
                 .setTitle(":closed_book: Kurallar")
-                .addField("**>**  :point_right: Küfür Yasaktır", "**---------------------------------**")
-                .addField("**>**  :point_right: Argo Yasaktır", "**---------------------------------**")
-                .addField("**>**  :point_right: Reklam Yasaktır", "**---------------------------------**")
+                .addField("**>** :point_right: Küfür Yasaktır", "**---------------------------------**")
+                .addField("**>** :point_right: Argo Yasaktır", "**---------------------------------**")
+                .addField("**>** :point_right: Reklam Yasaktır", "**---------------------------------**")
                 .setColor(3447003)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
             message.channel.send(embed)
@@ -432,11 +432,11 @@ bot.on("message", function(message) {
                         var embed = new Discord.RichEmbed()
                             .setAuthor("Minecraft Sunucusu", "https://use.gameapis.net/mc/query/icon/" + ip)
                             .setTitle("Sunucu Aktif!")
-                            .addField("**>**  Motd", serverMotd, false)
-                            .addField("**>**  Oyuncular", serverPlayers + "/" + serverMaxPlayers, true)
-                            .addField("**>**  Sürüm", serverVersion, true)
-                            .addField("**>**  Yazılım", serverSoftware, true)
-                            .addField("**>**  Port", serverPort, true)
+                            .addField("**>** Motd", serverMotd, false)
+                            .addField("**>** Oyuncular", serverPlayers + "/" + serverMaxPlayers, true)
+                            .addField("**>** Sürüm", serverVersion, true)
+                            .addField("**>** Yazılım", serverSoftware, true)
+                            .addField("**>** Port", serverPort, true)
                             .setColor(3447003)
                             .setFooter("Cube | SametTurkey#0286 | " + new Date())
                             .setThumbnail("https://use.gameapis.net/mc/query/icon/" + ip)
@@ -570,8 +570,8 @@ bot.on("message", function(message) {
                 ]
                 var embed = new Discord.RichEmbed()
                     .setAuthor(message.author.username, message.author.avatarURL)
-                    .addField("**>**  Soru", soru, false)
-                    .addField("**>**  Cevap", cevaplar[Math.floor(Math.random() * cevaplar.length)], true)
+                    .addField("**>** Soru", soru, false)
+                    .addField("**>** Cevap", cevaplar[Math.floor(Math.random() * cevaplar.length)], true)
                     .setColor(3447003)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 message.channel.send(embed)
@@ -583,14 +583,14 @@ bot.on("message", function(message) {
         case "sunucubilgisi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL)
-                .addField("**>**  ID", message.guild.id, true)
-                .addField("**>**  İsim", message.guild.name, true)
-                .addField("**>**  Sahibi", message.guild.owner.displayName, true)
-                .addField("**>**  Bölge", message.guild.region, true)
-                .addField("**>**  Kanallar", message.guild.channels.size, true)
-                .addField("**>**  Üyeler", message.guild.memberCount, true)
-                .addField("**>**  Roller", message.guild.roles.size, true)
-                .addField("**>**  Oluşturulma Tarihi", message.guild.createdAt, false)
+                .addField("**>** ID", message.guild.id, true)
+                .addField("**>** İsim", message.guild.name, true)
+                .addField("**>** Sahibi", message.guild.owner.displayName + ", (" + message.guild.owner.id + ")", true)
+                .addField("**>** Bölge", message.guild.region, true)
+                .addField("**>** Kanallar", message.guild.channels.size, true)
+                .addField("**>** Üyeler", message.guild.memberCount, true)
+                .addField("**>** Roller", message.guild.roles.size, true)
+                .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
                 .addField("**>** Ana Kanalı", "#" + message.guild.channels.first().name, true)
                 .addField("**>** Zaman Aşımı Süresi", message.guild.afkTimeout + " saniye", true)
                 .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel, true)
@@ -672,9 +672,9 @@ bot.on("message", function(message) {
                         var embed = new Discord.RichEmbed()
                             .setAuthor(channelUsername, channelUserImage)
                             .setTitle("Şimdi Yayında!")
-                            .addField("**>**  Yayın", channelStreamName, false)
-                            .addField("**>**  Oyun", channelStreamGame, true)
-                            .addField("**>**  İzleyici", channelStreamViewers, true)
+                            .addField("**>** Yayın", channelStreamName, false)
+                            .addField("**>** Oyun", channelStreamGame, true)
+                            .addField("**>** İzleyici", channelStreamViewers, true)
                             .setImage(channelStreamPreview)
                             .setColor(3447003)
                             .setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -707,12 +707,12 @@ bot.on("message", function(message) {
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
                 .setTitle("Yardım Komutları")
-                .addField("**>**  Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
+                .addField("**>** Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
                 "c!sunucuduyuru <mesaj> - Sunucudaki bütün kanallara mesaj atar!" + os.EOL +
                 "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
-                .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
+                .addField("**>** Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
                 "c!makas - Taş-Kağıt-Makas!" + os.EOL +
@@ -720,25 +720,25 @@ bot.on("message", function(message) {
                 "c!sorusor <mesaj> - Bota soru sorun!" + os.EOL +
                 "c!tas - Taş-Kağıt-Makas!" + os.EOL +
                 "c!yazitura - Yazı Tura Oyunu!")
-                .addField("**>**  Bilgi Komutları", "c!bilgi - Bot hakkında bilgiler gösterir!" + os.EOL +
+                .addField("**>** Bilgi Komutları", "c!bilgi - Bot hakkında bilgiler gösterir!" + os.EOL +
                 "c!host - Host Bilgileri!" + os.EOL +
                 "c!kullanicibilgisi <kullanici> - Kullanıcı Bilgilerini Gösterir!" + os.EOL +
                 "c!kurallar - Genel kuralları gösterir!" + os.EOL +
                 "c!sunucubilgisi - Sunucu bilgilerini gösterir!" + os.EOL +
                 "c!kanalbilgisi - Kanal bilgilerini gösterir!" + os.EOL +
                 "c!yardim - Bu komut listesini gösterir!")
-                .addField("**>**  Matematik Komutları", "c!topla <sayi> <sayi> - İki sayıyı toplar!" + os.EOL +
+                .addField("**>** Matematik Komutları", "c!topla <sayi> <sayi> - İki sayıyı toplar!" + os.EOL +
                 "c!cikar <sayi> <sayi> - İki sayıyı çıkarır!" + os.EOL +
                 "c!carp <sayi> <sayi> - İki sayıyı çarpar!" + os.EOL +
                 "c!bol <sayi> <sayi> - İki sayıyı böler!")
-                .addField("**>**  Oyun Komutları", "c!mcsunucu <ip> - Minecraft sunucu durumunu gösterir!" + os.EOL + 
+                .addField("**>** Oyun Komutları", "c!mcsunucu <ip> - Minecraft sunucu durumunu gösterir!" + os.EOL + 
                 "c!mcavatar <kullaniciadi> - Minecraft avatarını gösterir!" + os.EOL +
                 "c!mcbasarim <baslik> <yazi> - Minecraft başarımı oluşturur!" + os.EOL +
                 "c!mcskin <kullaniciadi> - Minecraft skinini gösterir!" + os.EOL +
                 "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
-                .addField("**>**  API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
+                .addField("**>** API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
                 "c!hastebin <yazi> - Hastebin'e yazı yükler!")
-                .addField("**>**  Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
+                .addField("**>** Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
                 "c!davetolustur - Davet oluşturur!" + os.EOL +
                 "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
                 "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
@@ -784,8 +784,8 @@ bot.on("message", function(message) {
         case "zaman":
             var embed = new Discord.RichEmbed()
                 .setTitle("Zaman")
-                .addField("**>**  Saat", new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(), true)
-                .addField("**>**  Tarih", new Date(), false)
+                .addField("**>** Saat", new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(), true)
+                .addField("**>** Tarih", new Date(), false)
                 .setColor(3447003)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 .setThumbnail(bot.user.avatarURL)
