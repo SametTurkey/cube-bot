@@ -859,6 +859,7 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("göt veren") > -1 ||
     message.content.toLowerCase().indexOf("bok") > -1 ||
     message.content.toLowerCase().indexOf("piç") > -1) {
+        if (message.channel.nsfw) return;
         if (message.author.bot == false) {
             message.react("😠")
             message.delete()
