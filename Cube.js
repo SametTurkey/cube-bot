@@ -593,6 +593,7 @@ bot.on("message", function(message) {
                 .addField("**>** Ana Kanalı", "<#" + message.guild.channels.first().id + ">", true)
                 .addField("**>** Zaman Aşımı Süresi", message.guild.afkTimeout + " saniye", true)
                 .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel.toString().replace("0", "Yok").replace("1", "Düşük").replace("2", "Orta"), true)
+                .addField("**>** Sakıncalı İçerik Filtresi", message.guild.explicitContentFilter.toString().replace("true", "Etkin").replace("false", "Devre Dışı"), true)
                 .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
                 .setColor(3447003)
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
