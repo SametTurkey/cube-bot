@@ -590,7 +590,7 @@ bot.on("message", function(message) {
                 .addField("**>** Kanallar", message.guild.channels.size, true)
                 .addField("**>** Üyeler", message.guild.memberCount, true)
                 .addField("**>** Roller", message.guild.roles.size, true)
-                .addField("**>** Ana Kanalı", "<#" + message.guild.channels.first().name + ">", true)
+                .addField("**>** Ana Kanalı", "<#" + message.guild.channels.first().id + ">", true)
                 .addField("**>** Zaman Aşımı Süresi", message.guild.afkTimeout + " saniye", true)
                 .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel.toString().replace("0", "Yok").replace("1", "Düşük").replace("2", "Orta"), true)
                 .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
