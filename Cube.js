@@ -592,7 +592,7 @@ bot.on("message", function(message) {
                 .addField("**>** Roller", message.guild.roles.size, true)
                 .addField("**>** Ana Kanalı", "<#" + message.guild.channels.first().id + ">", true)
                 .addField("**>** Zaman Aşımı Süresi", message.guild.afkTimeout + " saniye", true)
-                .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel.toString().replace("0", "Yok").replace("1", "Düşük").replace("2", "Orta"), true)
+                .addField("**>** Doğrulama Seviyesi", message.guild.verificationLevel.toString().replace("0", "Yok").replace("1", "Düşük").replace("2", "Orta").replace("3", "(╯°□°）╯︵ ┻━┻").replace("4", "┻━┻彡 ヽ(ಠ益ಠ)ノ彡┻━┻"), true)
                 .addField("**>** Sakıncalı İçerik Filtresi", message.guild.explicitContentFilter.toString().replace("true", "Etkin").replace("false", "Devre Dışı"), true)
                 .addField("**>** Oluşturulma Tarihi", message.guild.createdAt, false)
                 .setColor(3447003)
@@ -860,11 +860,12 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("göt veren") > -1 ||
     message.content.toLowerCase().indexOf("bok") > -1 ||
     message.content.toLowerCase().indexOf("piç") > -1) {
-        if (message.channel.nsfw) return;
-        if (message.author.bot == false) {
-            message.react("😠")
-            message.delete()
-            message.channel.send("<@" + message.author.id + ">, **lütfen küfür etme!**");
+        if (!message.channel.nsfw) {
+            if (message.author.bot == false) {
+                message.react("😠")
+                message.delete()
+                message.channel.send("<@" + message.author.id + ">, **lütfen küfür etme!**");
+            }
         }
     }
 });
