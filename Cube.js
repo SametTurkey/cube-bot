@@ -19,8 +19,7 @@ bot.on("ready", function(login) {
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
-while (true) {
-    delay(4000)
+while (delay(4000)) {
     bot.user.setGame(randommessages[Math.floor(Math.random() * randommessages.length)])
 }
 
