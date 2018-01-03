@@ -17,11 +17,12 @@ bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
-    while (true) {
-        delay(4000)
-        bot.user.setGame(randommessages[Math.floor(Math.random() * randommessages.length)])
-    }
 });
+
+while (true) {
+    delay(4000)
+    bot.user.setGame(randommessages[Math.floor(Math.random() * randommessages.length)])
+}
 
 bot.on("guildCreate", function(guild) {
     if (guild.channels.first().type == "text") {
