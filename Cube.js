@@ -195,8 +195,8 @@ bot.on("message", function(message) {
         case "bilgi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .addField("**>** Yapımcı", "OS S. | SametTurkey#0286")
-                .addField("**>** Yapımcılar", "Console.Owner === Altanay#3606 ve xDuz/13/Polat#8526")
+                .addField("**>** Yapımcı", "<@273453450019471361>")
+                .addField("**>** Yapımcılar", "<@293006152692662273> ve <@225925576551038977>")
                 .addField("**>** Altyapı", "Discord.JS (hydrabolt)")
                 .addField("**>** Sürüm", "Yok")
                 .addField("**>** Cube Resmi Sunucu", "https://discord.gg/eEm46bW")
