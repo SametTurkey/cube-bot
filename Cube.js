@@ -18,6 +18,7 @@ bot.on("ready", function(login) {
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
     while (true) {
+        delay(4000)
         bot.user.setGame(randommessages[Math.floor(Math.random() * randommessages.length)])
     }
 });
