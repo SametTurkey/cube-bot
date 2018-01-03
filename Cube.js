@@ -10,9 +10,16 @@ const Prefix = "c!";
 var bot = new Discord.Client();
 
 bot.on("ready", function(login) {
+    var randommessages = [
+        "deneme",
+        "deneme 2"
+    ]
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
     bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
+    while (true) {
+        bot.user.setGame(randommessages[Math.floor(Math.random() * randommessages.length)])
+    }
 });
 
 bot.on("guildCreate", function(guild) {
