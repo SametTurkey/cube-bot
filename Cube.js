@@ -771,7 +771,7 @@ bot.on("message", function(message) {
                                     else if (cevaplar[Math.floor(Math.random() * cevaplar.length)] == "Tura") {
                                         msg.edit("<:tura:389159536277323776> **| Sonuç: Tura**")
                                     }
-                                }
+                                });
                             });
                         });
                     });
