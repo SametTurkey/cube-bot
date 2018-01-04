@@ -824,7 +824,7 @@ bot.on("message", function(message) {
 
     if (message.content.toLowerCase().indexOf("https") > -1 || message.content.toLowerCase().indexOf("http") > -1) {
         if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
-            if (message.author != bot.user || message.author.bot == false) {
+            if (message.author.bot == false) {
                 message.react("😡")
                 message.delete()
                 message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
