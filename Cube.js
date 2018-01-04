@@ -762,16 +762,13 @@ bot.on("message", function(message) {
                         delay(500).then(() => {
                             msg.edit("<:tura:389159536277323776>")
                             delay(500).then(() => {
-                                msg.edit("<:yazi:389159538957352962>")
-                                delay(500).then(() => {
-                                    msg.edit("<:tura:389159536277323776>")
-                                    if (cevaplar[Math.floor(Math.random() * cevaplar.length)] == "Yazı") {
-                                        msg.edit("<:yazi:389159538957352962> **| Sonuç: Yazı**")
-                                    }
-                                    else if (cevaplar[Math.floor(Math.random() * cevaplar.length)] == "Tura") {
-                                        msg.edit("<:tura:389159536277323776> **| Sonuç: Tura**")
-                                    }
-                                });
+                                msg.edit("<:tura:389159536277323776>")
+                                if (cevaplar[Math.floor(Math.random() * cevaplar.length)] == "Yazı") {
+                                    msg.edit("<:yazi:389159538957352962> **| Sonuç: Yazı**")
+                                }
+                                else if (cevaplar[Math.floor(Math.random() * cevaplar.length)] == "Tura") {
+                                    msg.edit("<:tura:389159536277323776> **| Sonuç: Tura**")
+                                }
                             });
                         });
                     });
