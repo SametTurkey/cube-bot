@@ -792,7 +792,8 @@ bot.on("message", function(message) {
             message.channel.send("**Bilinmeyen komut!**");
     }
     }
-
+    else {
+    
     if (message.content.toLowerCase() == "merhaba") {
         message.react("👋")
         message.channel.send("**Merhaba**, <@" + message.author.id + ">!");
@@ -865,8 +866,7 @@ bot.on("message", function(message) {
             }
         }
     }
-    break
+    }
 });
 
 bot.login(process.env.BOT_TOKEN);
-
