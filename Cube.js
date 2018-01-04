@@ -86,7 +86,7 @@ function sleep(millis) {
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
-    if (!message.content.startsWith(Prefix)) {
+    if (message.content.startsWith(Prefix)) {
 
     var args = message.content.substring(Prefix.length).split(" ")
 
