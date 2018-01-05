@@ -808,7 +808,7 @@ bot.on("message", function(message) {
             if (err) console.error(err)
         });
         
-        console.log(levels[message.guild.id][message.author.id])
+        message.channel.send(levels[message.guild.id][message.author.id]);
     }
         
     if (message.content.toLowerCase() == "merhaba") {
