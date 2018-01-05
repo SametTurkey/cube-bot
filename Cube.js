@@ -12,7 +12,7 @@ var bot = new Discord.Client();
 bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
-    bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
+    bot.user.setGame("c!yardim | " + bot.shard + " | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildCreate", function(guild) {
@@ -32,7 +32,7 @@ bot.on("guildCreate", function(guild) {
     //        if (err) console.log(err);
     //    });
     //});
-    bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
+    bot.user.setGame("c!yardim | " + bot.shard + " | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildDelete", function(guild) {
@@ -49,7 +49,7 @@ bot.on("guildDelete", function(guild) {
     //        if (err) console.log(err);
     //    });
     //});
-    bot.user.setGame("c!yardim | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
+    bot.user.setGame("c!yardim | " + bot.shard + " | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
 bot.on("guildMemberAdd", function(member) {
