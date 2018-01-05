@@ -5,7 +5,7 @@ const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
 const fs = require("fs")
-const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
+// const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
 
@@ -255,14 +255,14 @@ bot.on("message", function(message) {
                 );
             }
             break
-        case "level":
-            var embed = new Discord.RichEmbed()
-                .setAuthor(message.author.username, message.author.avatarURL)
-                .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
-                .setColor(3447003)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
-            message.channel.send(embed);
-            break
+        // case "level":
+            // var embed = new Discord.RichEmbed()
+                // .setAuthor(message.author.username, message.author.avatarURL)
+                // .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
+                // .setColor(3447003)
+                // .setFooter("Cube | SametTurkey#0286 | " + new Date())
+            // message.channel.send(embed);
+            // break
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
@@ -806,19 +806,19 @@ bot.on("message", function(message) {
     }
     else {
     
-    if (!message.author.bot) {
-        if (!levels[message.guild.id]) levels[message.guild.id] = {
-            
-        }
-        if (!levels[message.guild.id][message.author.id]) levels[message.guild.id][message.author.id] = {
-            level : 0
-        };
-        levels[message.guild.id][message.author.id].level++
-        
-        fs.writeFile("./levels.json", JSON.stringify(levels), (err) => {
-            if (err) console.error(err)
-        });
-    }
+    // if (!message.author.bot) {
+        // if (!levels[message.guild.id]) levels[message.guild.id] = {
+        //    
+        // }
+        // if (!levels[message.guild.id][message.author.id]) levels[message.guild.id][message.author.id] = {
+        //     level : 0
+        // };
+        // levels[message.guild.id][message.author.id].level++
+        //
+        // fs.writeFile("./levels.json", JSON.stringify(levels), (err) => {
+        //     if (err) console.error(err)
+        // });
+    //}
         
     if (message.content.toLowerCase() == "merhaba") {
         message.react("👋")
