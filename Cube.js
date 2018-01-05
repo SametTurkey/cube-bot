@@ -256,7 +256,6 @@ bot.on("message", function(message) {
             }
             break
         case "level":
-            if (!message.guild) return;
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
