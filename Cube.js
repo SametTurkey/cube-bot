@@ -66,7 +66,8 @@ bot.on("guildMemberLeave", function(member) {
 
 bot.on("roleUpdate", function(oldrole, newrole) {
     if (newrole.guild.channels.first().type == "text") {
-        var embed = new Discord.RichEmbed()
+        if (newrole.name != oldrole.name || newrole.permissions != oldrole.permissions) {
+             var embed = new Discord.RichEmbed()
             .setAuthor("Rol Güncellemesi", newrole.guild.iconURL)
             .addField("**>** Eski Rol İsmi", oldrole.name, true)
             .addField("**>** Eski Rol Yetkileri", oldrole.permissions, true)
@@ -75,7 +76,8 @@ bot.on("roleUpdate", function(oldrole, newrole) {
             .setColor(3447003)
             .setThumbnail(newrole.guild.iconURL)
             .setFooter("Cube | SametTurkey#0286 | " + new Date())
-        newrole.guild.channels.first().send(embed);
+            newrole.guild.channels.first().send(embed);
+        }
     }
 });
 
