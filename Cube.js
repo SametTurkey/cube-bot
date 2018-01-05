@@ -5,7 +5,7 @@ const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
 const fs = require("fs")
-let levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
+const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
 
