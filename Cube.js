@@ -259,7 +259,7 @@ bot.on("message", function(message) {
             if (message.guild) {
                 var embed = new Discord.RichEmbed()
                     .setAuthor(message.author.name, message.author.avatarURL)
-                    .addField("Mesajlar", levels[message.guild.id][message.author.id])
+                    .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
                     .setColor(3447003)
                     .setThumbnail(bot.user.avatarURL)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
