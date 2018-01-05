@@ -255,6 +255,16 @@ bot.on("message", function(message) {
                 );
             }
             break
+        case "level":
+            if (message.guild) {
+                var embed = new Discord.RichEmbed()
+                    .setAuthor(message.author.name, message.author.avatarURL)
+                    .addField("Mesajlar", levels[message.guild.id][message.author.id])
+                    .setColor(3447003)
+                    .setThumbnail(bot.user.avatarURL)
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                message.channel.send(embed);
+            }
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
