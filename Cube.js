@@ -5,9 +5,6 @@ const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
 const fs = require("fs")
-
-fs.createFileStream("./levels.json", {overwrite: false})
-
 const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
