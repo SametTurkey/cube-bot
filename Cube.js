@@ -256,7 +256,7 @@ bot.on("message", function(message) {
             }
             break
         case "level":
-            if (message.guild) {
+            if (!message.channel.type == "dm") {
                 var embed = new Discord.RichEmbed()
                     .setAuthor(message.author.name, message.author.avatarURL)
                     .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
@@ -265,6 +265,7 @@ bot.on("message", function(message) {
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 message.channel.send(embed);
             }
+            break
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
