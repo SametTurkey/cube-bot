@@ -5,6 +5,9 @@ const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
 const fs = require("fs")
+
+fs.createFileStream("./levels.json", {overwrite: false})
+
 const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
@@ -799,6 +802,9 @@ bot.on("message", function(message) {
     else {
     
     if (!message.author.bot) {
+        if (!levels[message.guild.id]) levels[message.guild.id] = {
+            
+        }
         if (!levels[message.guild.id][message.author.id]) levels[message.guild.id][message.author.id] = {
             level : 0
         };
@@ -807,8 +813,6 @@ bot.on("message", function(message) {
         fs.writeFile("./levels.json", JSON.stringify(levels), (err) => {
             if (err) console.error(err)
         });
-        
-        message.channel.send(levels[message.guild.id][message.author.id]);
     }
         
     if (message.content.toLowerCase() == "merhaba") {
