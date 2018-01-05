@@ -10,7 +10,6 @@ const Prefix = "c!";
 var bot = new Discord.Client();
 
 const Shard = new Discord.ShardingManager("./Cube.js")
-Shard.spawn(2)
 
 bot.on("ready", function(login) {
     console.log("Hazır!");
