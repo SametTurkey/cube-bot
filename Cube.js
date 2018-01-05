@@ -9,8 +9,6 @@ const Prefix = "c!";
 
 var bot = new Discord.Client();
 
-const Shard = new Discord.ShardingManager("./Cube.js")
-
 bot.on("ready", function(login) {
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
