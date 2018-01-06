@@ -8,7 +8,7 @@ const delay = require("delay")
 const mysql = require("mysql")
 const fs = require("fs")
 // const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
-
+//C 2017 Cube
 const Prefix = "c!";
 
 var bot = new Discord.Client();
@@ -890,6 +890,7 @@ bot.on("message", function(message) {
     if (message.content.toLowerCase().indexOf("küfür") > -1 ||
     message.content.toLowerCase().indexOf("siktir") > -1 ||
     message.content.toLowerCase().indexOf("sikerim") > -1 ||
+       
     message.content.toLowerCase().indexOf("amına") > -1 ||
     message.content.toLowerCase().indexOf("amina") > -1 ||
     message.content.toLowerCase().indexOf("amcık") > -1 ||
