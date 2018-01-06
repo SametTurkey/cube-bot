@@ -958,8 +958,8 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("göt veren") > -1 ||
     message.content.toLowerCase().indexOf("bok") > -1 ||
     message.content.toLowerCase().indexOf("piç") > -1 ||
-    message.content.toLowerCase().indexOf("amk") > -1 ||
-    message.content.toLowerCase().indexOf("mk")) {
+    message.content.toLowerCase().indexOf(" amk") > -1 ||
+    message.content.toLowerCase().indexOf(" mk")) {
         if (!message.channel.nsfw) {
             if (message.author.bot == false) {
                 message.react("😠")
