@@ -1,3 +1,5 @@
+// SametTurkey || 2018
+
 const Discord = require("discord.js");
 const request = require("request");
 const os = require("os")
@@ -270,7 +272,6 @@ bot.on("message", function(message) {
                     .setAuthor("Oylama", message.guild.iconURL)
                     .addField("Konu", oylama)
                     .setColor(3447003)
-                    .setThumbnail(bot.user.avatarURL)
                     .setFooter("Cube | SametTurkey#0286 | " + new Date())
                 message.channel.send(embed).then((oylamamessage) =>
                 {
