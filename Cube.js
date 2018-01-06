@@ -6,6 +6,7 @@ const os = require("os")
 const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
+const google = require("google")
 const fs = require("fs")
 // const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
@@ -288,7 +289,22 @@ bot.on("message", function(message) {
                     message.delete()
                 }
             }
+            else {
+                message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+            }
             break
+        case "google":
+            if (!args[1] == "") {
+                var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
+                var sonuclar = ""
+                google(googlearama, function(err, res) {
+                    sonuclar = res.links.slice(1,2,3,4,5)
+                    message.channel.send(sonuclar);
+                });
+            }
+            else {
+                message.channel.send("**Komut parametreleri eksik veya hatalı!**");
+            }
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
