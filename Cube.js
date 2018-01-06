@@ -836,7 +836,7 @@ bot.on("message", function(message) {
             break
         case "zaman":
             var embed = new Discord.RichEmbed()
-                .setTitle("Zaman")
+                .setTitle(":clock4: Zaman")
                 .addField("**>** Saat", new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(), true)
                 .addField("**>** Tarih", new Date(), false)
                 .setColor(3447003)
