@@ -677,7 +677,7 @@ bot.on("message", function(message) {
         case "sunucuduyuru":
             if (!args[1] == "") {
                 var duyuru = args.join(" ").replace("sunucuduyuru").replace(" ", "").replace("undefined", "")
-                if (!message.member.roles.some(r=>["ManageChannels"].includes(r.name))) {
+                if (!message.member.roles.some(r=>["Administrator"].includes(r.name))) {
                     message.guild.channels.forEach(function(channel) {
                         if (channel.type == "text") {
                             channel.send(duyuru);
