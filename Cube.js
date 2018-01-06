@@ -356,24 +356,41 @@ bot.on("message", function(message) {
                 var memberinfo = message.mentions.members.first();
                 if (memberinfo) {
                     var embed = new Discord.RichEmbed()
-                        .setAuthor(message.channel.name, message.guild.iconURL)
+                        .setAuthor(memberinfo.user.username, memberinfo.user.avatarURL)
                         .addField("**>** ID", memberinfo.id, true)
                         .addField("**>** Kullanıcı Adı", memberinfo.user.username, true)
                         .addField("**>** Kayıt Tarihi", memberinfo.user.createdAt, true)
-                        if (memberinfo.user.game) {
-                            embed.addField("Oyun", memberinfo.user.game, true)
+                        if (memberinfo.user.bot) {
+                            embed.addField("Bot", "Evet", true)
                         }
                         else {
-                            embed.addField("Oyun", "Oynamıyor", true)
+                            embed.addField("Bot", "Hayır", true)
                         }
                         embed.setColor(3447003)
-                            .setThumbnail(message.guild.iconURL)
-                            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                        .setThumbnail(memberinfo.user.avatarURL)
+                        .setFooter("Cube | SametTurkey#0286 | " + new Date())
                     message.channel.send(embed)
                 }
                 else {
                     return message.channel.send("**Kullanıcı bulunamadı!**");
                 }
+            }
+            else {
+                var embed = new Discord.RichEmbed()
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .addField("**>** ID", message.author.id, true)
+                .addField("**>** Kullanıcı Adı", message.author.username, true)
+                .addField("**>** Kayıt Tarihi", message.author.createdAt, true)
+                if (message.author.bot) {
+                    embed.addField("Bot", "Evet", true)
+                }
+                else {
+                    embed.addField("Bot", "Hayır", true)
+                }
+                embed.setColor(3447003)
+                    .setThumbnail(message.author.avatarURL)
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                message.channel.send(embed)
             }
             break
         case "kurallar":
