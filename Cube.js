@@ -301,8 +301,10 @@ bot.on("message", function(message) {
                 var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
                 var sonuclar = ""
                 google(googlearama, function(err, res) {
-                    var link = res.links[1]
-                    message.channel.send(link);
+                    for (var i = 0; i < 1; ++i) {
+                        var link = res.links[i]
+                        message.channel.send(link.title + ' - ' + link.href);
+                    }
                 });
             }
             else {
