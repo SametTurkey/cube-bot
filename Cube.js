@@ -318,11 +318,11 @@ bot.on("message", function(message) {
                             var response = JSON.parse(res)
                             steamusername = response.response.players[steamid]
                             steamavatar = response.response.players[avatarmedium]
-                        }
+                        });
                         request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json", {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json"}, function(err,res,body) {
                             var response = JSON.parse(res)
                             steamgames = response.response.game_count
-                        }
+                        });
                         var embed = new Discord.RichEmbed()
                             .setAuthor(steamusername, steamavatar)
                             .addField("Oyun Sayısı", steamgames)
