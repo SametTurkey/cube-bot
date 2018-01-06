@@ -196,7 +196,7 @@ bot.on("message", function(message) {
             message.channel.send(embed)
             break
         case "hataverdirme":
-            message.channel.send(4 / "hata")
+            throw new Error("İsteğe bağlı hata verdirildi!")
             break
         case "bilgi":
             var embed = new Discord.RichEmbed()
