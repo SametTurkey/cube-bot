@@ -195,6 +195,9 @@ bot.on("message", function(message) {
                 .setFooter("Cube | SametTurkey#0286 | " + new Date())
             message.channel.send(embed)
             break
+        case "hataverdirme":
+            message.channel.send(4 / "hata")
+            break
         case "bilgi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
