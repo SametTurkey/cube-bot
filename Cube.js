@@ -93,6 +93,7 @@ bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
     if (message.content.startsWith(Prefix)) {
+    try {
 
     var args = message.content.substring(Prefix.length).split(" ")
 
@@ -351,28 +352,36 @@ bot.on("message", function(message) {
             }
             break
         case "kullanicibilgisi":
-            //let memberinfo = message.mentions.members.first();
-            //if (memberinfo) {
-            //    var embed = new Discord.RichEmbed()
-            //        .setAuthor(message.channel.name, message.guild.iconURL)
-            //        .addField("**>** ID", memberinfo.id, true)
-            //        .addField("**>** Kullanıcı Adı", memberinfo.username, true)
-            //        .addField("**>** Kayıt Tarihi", memberinfo.createdAt, true)
-            //        if (memberinfo.client.status.toString() == "0") {
-            //            embed.addField("**>** Durun", "Çevrimiçi", true)
-            //        }
-            //        else {
-            //        embed.addField("**>** Uygunsuz", "Hayır")
-            //        }
-            //        embed.addField("**>** Oluşturuldu", message.channel.createdAt)
-            //        .setColor(3447003)
-            //        .setThumbnail(message.guild.iconURL)
-            //        .setFooter("Cube | SametTurkey#0286 | " + new Date())
-            //    message.channel.send(embed)
-            //}
-            //else {
-            //    return message.channel.send("**Kullanıcı bulunamadı!**");
-            //}
+            if (!args[1] == "") {
+                var memberinfo = message.mentions.members.first();
+                if (memberinfo) {
+                    var embed = new Discord.RichEmbed()
+                        .setAuthor(message.channel.name, message.guild.iconURL)
+                        .addField("**>** ID", memberinfo.id, true)
+                        .addField("**>** Kullanıcı Adı", memberinfo.username, true)
+                        .addField("**>** Kayıt Tarihi", memberinfo.createdAt, true)
+                        if (memberinfo.client.status == "0") {
+                            embed.addField("**>** Durum", "Çevrimiçi", true)
+                        }
+                        else if (memberinfo.client.status == "1") {
+                            embed.addField("**>** Durum", "Boşta", true)
+                        }
+                        else if (memberinfo.client.status == "2") {
+                            embed.addField("**>** Durum", "Rahatsız Etmeyin", true)
+                        }
+                        else if (memberinfo.client.status == "3") {
+                            embed.addField("**>** Durum", "Çevrimdışı", true)
+                        }
+                        embed.addField("**>** Oluşturuldu", message.channel.createdAt)
+                            .setColor(3447003)
+                            .setThumbnail(message.guild.iconURL)
+                            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                    message.channel.send(embed)
+                }
+                else {
+                    return message.channel.send("**Kullanıcı bulunamadı!**");
+                }
+            }
             break
         case "kurallar":
             var embed = new Discord.RichEmbed()
@@ -824,6 +833,10 @@ bot.on("message", function(message) {
             break
         default:
             message.channel.send("**Bilinmeyen komut!**");
+    }
+    }
+    catch (err) {
+        message.channel.send("<" + message.author.id + ">, **komut kullanırken bir hata oluştu: " + os.EOL + "`" + err + "`" + os.EOL + "Lütfen bildirin! <@273453450019471361>, <@293006152692662273>");
     }
     }
     else {
