@@ -263,6 +263,22 @@ bot.on("message", function(message) {
                 // .setFooter("Cube | SametTurkey#0286 | " + new Date())
             // message.channel.send(embed);
             // break
+        case "oylama":
+            if (!args[1] == "") {
+                var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
+                var embed = new Discord.RichEmbed()
+                    .setAuthor("Oylama", message.guild.iconURL)
+                    .addField("Konu", oylama)
+                    .setColor(3447003)
+                    .setThumbnail(bot.user.avatarURL)
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                message.channel.send(embed).then((oylamamessage) =>
+                {
+                    oylamamessage.react("✅")
+                    oylamamessage.react("❌")
+                });
+            }
+            break
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
