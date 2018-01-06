@@ -849,7 +849,7 @@ bot.on("message", function(message) {
     }
     }
     catch (err) {
-        message.channel.send("<@" + message.author.id + ">, **komut kullanırken bir hata oluştu: " + os.EOL + "`" + err + "`" + os.EOL + "Lütfen bildirin! <@273453450019471361>, <@293006152692662273>**");
+        message.channel.send("<@" + message.author.id + ">, **komut kullanırken bir hata oluştu: " + os.EOL + "`" + err + "`" + os.EOL + os.EOL + "Lütfen bildirin! <@273453450019471361>, <@293006152692662273>**");
     }
     }
     else {
