@@ -566,7 +566,7 @@ bot.on("message", function(message) {
                 .setColor(3447003)
             message.channel.send(embed);
             break
-        case "sarkiturkce":
+        case "sarkiyabanci":
             var songs = ["Super Sako Feat Spitakci Hayko - Mi Gna",
                 "Sean Paul Feat Dua Lipa - No Lie",
                 "Jason Derulo Feat Nicki Minaj & TY Dolla Sign - Swalla",
