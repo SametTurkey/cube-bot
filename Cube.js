@@ -299,6 +299,40 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
+        case "steam":
+            if (!args[1] == "") {
+                var steam = args.join(" ").replace("steam", "").replace("undefined", "")
+                var steamid = ""
+                var steamsuccess = false
+                var steamusername = ""
+                var steamavatar = ""
+                var steamgames = 0
+                request.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam, {host: "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam}, function(err,res,body) {
+                    var response = JSON.parse(res)
+                    if (!response.response.success == 42) {
+                        steamsuccess = true
+                        steamid = response.response.steamid
+                    }
+                    if (steamsuccess == true) {
+                        request.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid}, function(err,res,body) {
+                            var response = JSON.parse(res)
+                            steamusername = response.response.players[steamid]
+                            steamavatar = response.response.players[avatarmedium]
+                        }
+                        request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json", {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json"}, function(err,res,body) {
+                            var response = JSON.parse(res)
+                            steamgames = response.response.game_count
+                        }
+                        var embed = new Discord.RichEmbed()
+                            .setAuthor(steamusername, steamavatar)
+                            .addField("Oyun Sayısı", steamgames)
+                            .setColor(3447003)
+                            .setThumbnail(bot.user.avatarURL)
+                            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                        message.channel.send(embed);
+                    }
+                });
+            }
         case "google":
             if (!args[1] == "") {
                 var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
