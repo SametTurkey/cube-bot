@@ -259,10 +259,13 @@ bot.on("message", function(message) {
             }
             break
         case "davetolustur":
-            if (!message.member.roles.some(r=>["CreateInstantInvite"].includes(r.name))) {
+            if (message.member.roles.some(r=>["CreateInstantInvite"].includes(r.name))) {
                 message.channel.createInvite().then(invite =>
                     message.channel.send(":white_check_mark: **Başarılı! **" + invite.url)
                 );
+            }
+            else {
+                message.delete()
             }
             break
         // case "level":
@@ -714,7 +717,7 @@ bot.on("message", function(message) {
             break
         case "temizle":
             if (!args[1] == "") {
-                if (!message.member.roles.some(r=>["Manage Messages"].includes(r.name))) {
+                if (message.member.roles.some(r=>["Manage Messages"].includes(r.name))) {
                     var temizle = parseInt(args[1])
                     if (temizle > 100)
                     return message.channel.send("**Mesaj silme sınırı 100'dür!**");
