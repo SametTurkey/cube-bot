@@ -483,7 +483,7 @@ bot.on("message", function(message) {
                         }
                         var embed = new Discord.RichEmbed()
                             .setAuthor("Minecraft Sunucusu", "https://use.gameapis.net/mc/query/icon/" + ip)
-                            .setTitle("<:aktif:399225366776119298> Sunucu Aktif!")
+                            .setTitle("<:yazi:389159538957352962> Sunucu Aktif!")
                             .addField("**>** Motd", serverMotd, false)
                             .addField("**>** Oyuncular", serverPlayers + "/" + serverMaxPlayers, true)
                             .addField("**>** Sürüm", serverVersion, true)
