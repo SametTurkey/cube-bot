@@ -483,7 +483,7 @@ bot.on("message", function(message) {
                         }
                         var embed = new Discord.RichEmbed()
                             .setAuthor("Minecraft Sunucusu", "https://use.gameapis.net/mc/query/icon/" + ip)
-                            .setTitle("<:yazi:389159538957352962> Sunucu Aktif!")
+                            .setTitle("<:aktif:399225238883139586> Sunucu Aktif!")
                             .addField("**>** Motd", serverMotd, false)
                             .addField("**>** Oyuncular", serverPlayers + "/" + serverMaxPlayers, true)
                             .addField("**>** Sürüm", serverVersion, true)
@@ -724,7 +724,7 @@ bot.on("message", function(message) {
                         var channelStreamPreview = json.stream.preview.large
                         var embed = new Discord.RichEmbed()
                             .setAuthor(channelUsername, channelUserImage)
-                            .setTitle("<:aktif:399225366776119298> Şimdi Yayında!")
+                            .setTitle("<:aktif:399225238883139586> Şimdi Yayında!")
                             .addField("**>** Yayın", channelStreamName, false)
                             .addField("**>** Oyun", channelStreamGame, true)
                             .addField("**>** İzleyici", channelStreamViewers, true)
