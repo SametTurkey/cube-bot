@@ -12,6 +12,9 @@ const fs = require("fs")
 
 const Prefix = "c!";
 
+google.lang = "tr"
+google.nextText = "Sonraki"
+
 var bot = new Discord.Client();
 
 bot.on("ready", function(login) {
@@ -298,13 +301,13 @@ bot.on("message", function(message) {
                 var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
                 var sonuclar = ""
                 google(googlearama, function(err, res) {
-                    sonuclar = res.links.slice(1,2,3,4,5)
-                    message.channel.send(sonuclar);
+                    message.channel.send(res.links);
                 });
             }
             else {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
+            break
         case "hastebin":
             if (!args[1] == "") {
                 request.post({
