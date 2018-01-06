@@ -324,12 +324,12 @@ bot.on("message", function(message) {
 						var embed = new Discord.RichEmbed()
 							.setAuthor(steamusername, steamavatar)
 							.addField("ID", steamid, true)
-							.addField("Gerçek İsim", steamrealname, true
+							.addField("Gerçek İsim", steamrealname, true)
 							.addField("Ülke", steamcountry, true)
 							.addField("Oyun Sayısı", steamgames, true)
 							.setColor(3447003)
 							.setThumbnail(steamavatar)
-							.setFooter("Cube | SametTurkey#0286 | " + new Date()))
+							.setFooter("Cube | SametTurkey#0286 | " + new Date())
 						message.channel.send(embed);
 					});
 				});
