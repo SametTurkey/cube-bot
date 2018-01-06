@@ -714,7 +714,7 @@ bot.on("message", function(message) {
             break
         case "temizle":
             if (!args[1] == "") {
-                if (!message.member.roles.some(r=>["ManageMessages"].includes(r.name))) {
+                if (!message.member.roles.some(r=>["Manage Messages"].includes(r.name))) {
                     var temizle = parseInt(args[1])
                     if (temizle > 100)
                     return message.channel.send("**Mesaj silme sınırı 100'dür!**");
@@ -954,7 +954,9 @@ bot.on("message", function(message) {
     message.content.toLowerCase().indexOf("götveren") > -1 ||
     message.content.toLowerCase().indexOf("göt veren") > -1 ||
     message.content.toLowerCase().indexOf("bok") > -1 ||
-    message.content.toLowerCase().indexOf("piç") > -1) {
+    message.content.toLowerCase().indexOf("piç") > -1 ||
+    message.content.toLowerCase().indexOf("amk") > -1 ||
+    message.content.toLowerCase().indexOf("mk")) {
         if (!message.channel.nsfw) {
             if (message.author.bot == false) {
                 message.react("😠")
