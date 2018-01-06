@@ -301,7 +301,7 @@ bot.on("message", function(message) {
                 var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
                 var sonuclar = ""
                 google(googlearama, function(err, res) {
-                    for (var i = 0; i < res.links.length; ++i) {
+                    for (var i = 0; i < 1; ++i) {
                         var link = res.links[i]
                         message.channel.send(link.href);
                     }
