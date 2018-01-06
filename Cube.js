@@ -278,7 +278,7 @@ bot.on("message", function(message) {
             // break
         case "oylama":
             if (!args[1] == "") {
-                if (!message.member.roles.some(r=>["Administrator"].includes(r.name))) {
+                if (message.member.roles.some(r=>["Administrator"].includes(r.name))) {
                     var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
                     var embed = new Discord.RichEmbed()
                         .setAuthor("Oylama", message.guild.iconURL)
@@ -680,7 +680,7 @@ bot.on("message", function(message) {
         case "sunucuduyuru":
             if (!args[1] == "") {
                 var duyuru = args.join(" ").replace("sunucuduyuru").replace(" ", "").replace("undefined", "")
-                if (!message.member.roles.some(r=>["Administrator"].includes(r.name))) {
+                if (message.member.roles.some(r=>["Administrator"].includes(r.name))) {
                     message.guild.channels.forEach(function(channel) {
                         if (channel.type == "text") {
                             channel.send(duyuru);
