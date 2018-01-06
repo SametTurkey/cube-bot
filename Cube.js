@@ -308,19 +308,19 @@ bot.on("message", function(message) {
                 var steamavatar = ""
                 var steamgames = 0
                 request.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam, {host: "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam}, function(err,res,body) {
-                    var responseid = JSON.parse(res)
+                    var responseid = JSON.parse(body)
                     if (!responseid.response.success == 42) {
                         steamsuccess = true
                         steamid = responseid.response.steamid
                     }
                     if (steamsuccess == true) {
                         request.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid}, function(err,res,body) {
-                            var responsekullanici = JSON.parse(res)
+                            var responsekullanici = JSON.parse(body)
                             steamusername = responsekullanici.response.players[steamid]
                             steamavatar = responsekullanici.response.players[avatarmedium]
                         });
                         request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json", {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid + "&format=json"}, function(err,res,body) {
-                            var responseoyun = JSON.parse(res)
+                            var responseoyun = JSON.parse(body)
                             steamgames = responseoyun.response.game_count
                         });
                     }
