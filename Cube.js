@@ -303,40 +303,37 @@ bot.on("message", function(message) {
             if (!args[1] == "") {
                 var steam = args.join(" ").replace("steam", "").replace("undefined", "").replace(" ", "")
                 var steamid = ""
-				var steamusername = ""
-				var steamrealname = ""
-				var steamcountry = ""
-				var steamavatar = ""
-				var steamgames = ""
+		var steamusername = ""
+		var steamrealname = ""
+		var steamcountry = ""
+		var steamavatar = ""
+		var steamgames = ""
                 request.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam, {"host": "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam}, function(err,res,body) { 
-					var responseid = JSON.parse(body)
-					if (responseid.response.success == 1) {
-						steamid = responseid.response.steamid
-						request.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
-							var responseuser = JSON.parse(body)
-							steamusername = responseuser.response.players[0].personaname
-							steamrealname = responseuser.response.players[0].realname
-							steamcountry = responseuser.response.players[0].loccountrycode
-							steamavatar = responseuser.response.players[0].avatarfull
-							console.log(steamusername)
-							console.log(steamavatar)
-							request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid, {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=XXXXXXXXXXXXXXXXX&steamid=" + steamid}, function(err,res,body) {
-								var responsegames = JSON.parse(body)
-								steamgames = responsegames.response.game_count
-								console.log(steamgames)
-								var embed = new Discord.RichEmbed()
-									.setAuthor(steamusername, steamavatar)
-									.addField("ID", steamid, true)
-									.addField("Gerçek İsim", steamrealname, true
-									.addField("Ülke", steamcountry, true)
-									.addField("Oyun Sayısı", steamgames, true)
-									.setColor(3447003)
-									.setThumbnail(steamavatar)
-									.setFooter("Cube | SametTurkey#0286 | " + new Date())
-								message.channel.send(embed);
-							});
-						});
-					}
+			var responseid = JSON.parse(body)
+			if (responseid.response.success == 1) {
+				steamid = responseid.response.steamid
+				request.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamids=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
+					var responseuser = JSON.parse(body)
+					steamusername = responseuser.response.players[0].personaname
+					steamrealname = responseuser.response.players[0].realname
+					steamcountry = responseuser.response.players[0].loccountrycode
+					steamavatar = responseuser.response.players[0].avatarfull
+					request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid, {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
+						var responsegames = JSON.parse(body)
+						steamgames = responsegames.response.game_count
+						var embed = new Discord.RichEmbed()
+							.setAuthor(steamusername, steamavatar)
+							.addField("ID", steamid, true)
+							.addField("Gerçek İsim", steamrealname, true
+							.addField("Ülke", steamcountry, true)
+							.addField("Oyun Sayısı", steamgames, true)
+							.setColor(3447003)
+							.setThumbnail(steamavatar)
+							.setFooter("Cube | SametTurkey#0286 | " + new Date()))
+						message.channel.send(embed);
+					});
+				});
+			}
                 });
             }
             break
