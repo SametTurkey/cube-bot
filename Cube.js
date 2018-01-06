@@ -358,22 +358,15 @@ bot.on("message", function(message) {
                     var embed = new Discord.RichEmbed()
                         .setAuthor(message.channel.name, message.guild.iconURL)
                         .addField("**>** ID", memberinfo.id, true)
-                        .addField("**>** Kullanıcı Adı", memberinfo.username, true)
-                        .addField("**>** Kayıt Tarihi", memberinfo.createdAt, true)
-                        if (memberinfo.client.status == "0") {
-                            embed.addField("**>** Durum", "Çevrimiçi", true)
+                        .addField("**>** Kullanıcı Adı", memberinfo.user.username, true)
+                        .addField("**>** Kayıt Tarihi", memberinfo.user.createdAt, true)
+                        if (memberinfo.user.game) {
+                            embed.addField("Oyun", memberinfo.user.game, true)
                         }
-                        else if (memberinfo.client.status == "1") {
-                            embed.addField("**>** Durum", "Boşta", true)
+                        else {
+                            embed.addField("Oyun", "Oynamıyor", true)
                         }
-                        else if (memberinfo.client.status == "2") {
-                            embed.addField("**>** Durum", "Rahatsız Etmeyin", true)
-                        }
-                        else if (memberinfo.client.status == "3") {
-                            embed.addField("**>** Durum", "Çevrimdışı", true)
-                        }
-                        embed.addField("**>** Oluşturuldu", message.channel.createdAt)
-                            .setColor(3447003)
+                        embed.setColor(3447003)
                             .setThumbnail(message.guild.iconURL)
                             .setFooter("Cube | SametTurkey#0286 | " + new Date())
                     message.channel.send(embed)
