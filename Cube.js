@@ -303,7 +303,7 @@ bot.on("message", function(message) {
                 google(googlearama, function(err, res) {
                     for (var i = 0; i < 1; ++i) {
                         var link = res.links[i]
-                        message.channel.send(link.title + ' - ' + link.href);
+                        message.channel.send("**" + link.title + "**" + ' - ' + link.href);
                     }
                 });
             }
