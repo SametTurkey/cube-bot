@@ -267,17 +267,22 @@ bot.on("message", function(message) {
             // break
         case "oylama":
             if (!args[1] == "") {
-                var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
-                var embed = new Discord.RichEmbed()
-                    .setAuthor("Oylama", message.guild.iconURL)
-                    .addField("Konu", oylama)
-                    .setColor(3447003)
-                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
-                message.channel.send(embed).then((oylamamessage) =>
-                {
-                    oylamamessage.react("✅")
-                    oylamamessage.react("❌")
-                });
+                if (!message.member.roles.some(r=>["Administrator"].includes(r.name))) {
+                    var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
+                    var embed = new Discord.RichEmbed()
+                        .setAuthor("Oylama", message.guild.iconURL)
+                        .addField("Konu", oylama)
+                        .setColor(3447003)
+                        .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                    message.channel.send(embed).then((oylamamessage) =>
+                    {
+                        oylamamessage.react("✅")
+                        oylamamessage.react("❌")
+                    });
+                }
+                else {
+                    message.delete()
+                }
             }
             break
         case "hastebin":
