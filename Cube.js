@@ -331,8 +331,9 @@ bot.on("message", function(message) {
 		}
 	    }
 	    else {
-		    
+		    message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
 	    }
+	    break
         case "steam":
             if (!args[1] == "") {
                 var steam = args.join(" ").replace("steam", "").replace("undefined", "").replace(" ", "")
