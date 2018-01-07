@@ -317,10 +317,10 @@ bot.on("message", function(message) {
 				havadurumuwindspeed = havadurumuresponse.wind.speed
 				var embed = new Discord.RichEmbed()
 					.setTitle(":sunny: " + havadurumuname)
-					.addField("Açıklama", havadurumudescription)
-					.addField("Ülke", havadurumucountry)
-					.addField("Nem", havadurumuhumidity)
-					.addField("Rüzgar", havadurumuwindspeed)
+					.addField("Açıklama", havadurumudescription, true)
+					.addField("Ülke", havadurumucountry, true)
+					.addField("Nem", havadurumuhumidity, true)
+					.addField("Rüzgar Hızı", havadurumuwindspeed, true)
 					.setColor(3447003)
 					.setFooter("Cube | SametTurkey#0286 | " + new Date())
 				message.channel.send(embed);
