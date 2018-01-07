@@ -324,7 +324,7 @@ bot.on("message", function(message) {
 						steamgames = responsegames.response.game_count
 						request.get("http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
 							var responsefriends = JSON.parse(body)
-							steamfriends = Object.keys(responsefriends.friendslist.friends[0]).length
+							steamfriends = responsefriends.friendslist.friends[0].length
 							var embed = new Discord.RichEmbed()
 								.setAuthor(steamusername, steamavatar)
 								.addField("ID", steamid, true)
