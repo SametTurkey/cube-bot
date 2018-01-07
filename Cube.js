@@ -646,7 +646,7 @@ bot.on("message", function(message) {
 			else {
 				message.channel.send("**Grup bulunamadı!**");
 			}
-		}
+		});
 	    }
 	    else {
 		   message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
