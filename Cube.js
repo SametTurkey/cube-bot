@@ -634,7 +634,7 @@ bot.on("message", function(message) {
 				robloxgrupdescription = grupresponse.Description
 				request.get("https://www.roblox.com/group-thumbnails?params=%5B%7BgroupId:" + robloxgrupid + "%7D%5D", {host: "https://www.roblox.com/group-thumbnails?params=%5B%7BgroupId:" + robloxgrup + "%7D%5D"}, function(err,res,body) {
 					var grupiconresponse = JSON.parse(body)
-					robloxgrupicon = grupiconresponse.thumbnailUrl
+					robloxgrupicon = grupiconresponse[0].thumbnailUrl
 					var embed = new Discord.RichEmbed()
 						.setAuthor(robloxgrupname, robloxgrupicon)
 						.addField("**>** ID", robloxgrupid, true)
