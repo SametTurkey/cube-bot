@@ -299,6 +299,40 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
+	case "havadurumu":
+	    if (!args[1] == "") {
+		var havadurumu = args.join(" ").replace("havadurumu", "").replace("undefined", "").replace(" ", "")
+		var havadurumuname = ""
+		var havadurumudescription = ""
+		var havadurumucountry = ""
+		var havadurumuhumidity = ""
+		var havadurumuwindspeed = ""
+		request.get("http://api.openweathermap.org/data/2.5/weather?APPID=f4f00e4463cd080d8de2b99ff72c3526&q=" + havadurumu, {host: "http://api.openweathermap.org/data/2.5/weather?APPID=f4f00e4463cd080d8de2b99ff72c3526&q=" + havadurumu}, function(err,res,body) {
+			var havadurumuresponse = JSON.parse(body)
+			if (havadurumuresponse.cod == 200) {
+				havadurumuname = havadurumuresponse.name
+				havadurumudescription = havadurumuresponse.weather[0].description
+				havadurumucountry = havadurumuresponse.sys.country
+				havadurumuhumidity = havadurumuresponse.main.humidity
+				havadurumuwindspeed = havadurumuresponse.wind.speed
+				var embed = new Discord.RichEmbed()
+					.setTitle(":sunny: " + havadurumuname)
+					.addField("Açıklama", havadurumudescription)
+					.addField("Ülke", havadurumucountry)
+					.addField("Nem", havadurumuhumidity)
+					.addField("Rüzgar", havadurumuwindspeed)
+					.setColor(3447003)
+					.setFooter("Cube | SametTurkey#0286 | " + new Date())
+				message.channel.send(embed);
+			}
+			else {
+				message.channel.send("**Şehir bulunamadı!**");
+			}
+		}
+	    }
+	    else {
+		    
+	    }
         case "steam":
             if (!args[1] == "") {
                 var steam = args.join(" ").replace("steam", "").replace("undefined", "").replace(" ", "")
