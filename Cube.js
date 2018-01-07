@@ -336,7 +336,7 @@ bot.on("message", function(message) {
 								.setThumbnail(steamavatar)
 								.setFooter("Cube | SametTurkey#0286 | " + new Date())
 							message.channel.send(embed);
-						}
+						});
 					});
 				});
 			}
