@@ -321,7 +321,7 @@ bot.on("message", function(message) {
 					.setTitle(":sunny: " + havadurumuname)
 					.setDescription("Bilgiler %100 doğru olmayabilir!")
 					.addField("ID", havadurumuid, true)
-					.addField("Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli").replace("clear sky", "Açık Hava"), true)
+					.addField("Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli").replace("clear sky", "Açık Hava").replace("overcast clouds", "Bulutlu"), true)
 					.addField("Ülke", havadurumucountry, true)
 					.addField("Nem", havadurumuhumidity, true)
 					.addField("Rüzgar Hızı", havadurumuwindspeed, true)
