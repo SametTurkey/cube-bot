@@ -271,7 +271,7 @@ bot.on("message", function(message) {
         // case "level":
             // var embed = new Discord.RichEmbed()
                 // .setAuthor(message.author.username, message.author.avatarURL)
-                // .addField("Mesajlar", levels[message.guild.id][message.author.id].level)
+                // .addField("**>**Mesajlar", levels[message.guild.id][message.author.id].level)
                 // .setColor(3447003)
                 // .setFooter("Cube | SametTurkey#0286 | " + new Date())
             // message.channel.send(embed);
@@ -282,7 +282,7 @@ bot.on("message", function(message) {
                     var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
                     var embed = new Discord.RichEmbed()
                         .setAuthor("Oylama", message.guild.iconURL)
-                        .addField("Konu", oylama)
+                        .addField("**>**Konu", oylama)
                         .setColor(3447003)
                         .setFooter("Cube | SametTurkey#0286 | " + new Date())
                     message.channel.send(embed).then((oylamamessage) =>
@@ -320,11 +320,11 @@ bot.on("message", function(message) {
 				var embed = new Discord.RichEmbed()
 					.setTitle(":sunny: " + havadurumuname)
 					.setDescription("Bilgiler %100 doğru olmayabilir.")
-					.addField("ID", havadurumuid, true)
-					.addField("Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli").replace("clear sky", "Açık Hava").replace("overcast clouds", "Kapalı Bulutlar"), true)
-					.addField("Ülke", havadurumucountry, true)
-					.addField("Nem", havadurumuhumidity, true)
-					.addField("Rüzgar Hızı", havadurumuwindspeed, true)
+					.addField("**>**ID", havadurumuid, true)
+					.addField("**>**Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli").replace("clear sky", "Açık Hava").replace("overcast clouds", "Kapalı Bulutlar"), true)
+					.addField("**>**Ülke", havadurumucountry, true)
+					.addField("**>**Nem", havadurumuhumidity, true)
+					.addField("**>**Rüzgar Hızı", havadurumuwindspeed, true)
 					.setColor(3447003)
 					.setFooter("Cube | SametTurkey#0286 | " + new Date())
 				message.channel.send(embed);
@@ -366,11 +366,11 @@ bot.on("message", function(message) {
 							steamfriends = Object.keys(responsefriends.friendslist.friends[0]).length
 							var embed = new Discord.RichEmbed()
 								.setAuthor(steamusername, steamavatar)
-								.addField("ID", steamid, true)
-								.addField("Gerçek İsim", steamrealname.replace("undefined", "Belirlenmedi"), true)
-								.addField("Ülke", steamcountry.replace("undefined", "Belirlenmedi"), true)
-								.addField("Arkadaş Sayısı", steamfriends, true)
-								.addField("Oyun Sayısı", steamgames, true)
+								.addField("**>**ID", steamid, true)
+								.addField("**>**Gerçek İsim", steamrealname.replace("undefined", "Belirlenmedi"), true)
+								.addField("**>**Ülke", steamcountry.replace("undefined", "Belirlenmedi"), true)
+								.addField("**>**Arkadaş Sayısı", steamfriends, true)
+								.addField("**>**Oyun Sayısı", steamgames, true)
 								.setColor(3447003)
 								.setThumbnail(steamavatar)
 								.setFooter("Cube | SametTurkey#0286 | " + new Date())
@@ -478,10 +478,10 @@ bot.on("message", function(message) {
                         .addField("**>** Kullanıcı Adı", memberinfo.user.username, true)
                         .addField("**>** Kayıt Tarihi", memberinfo.user.createdAt, true)
                         if (memberinfo.user.bot) {
-                            embed.addField("Bot", "Evet", true)
+                            embed.addField("**>**Bot", "Evet", true)
                         }
                         else {
-                            embed.addField("Bot", "Hayır", true)
+                            embed.addField("**>**Bot", "Hayır", true)
                         }
                         embed.setColor(3447003)
                         .setThumbnail(memberinfo.user.avatarURL)
@@ -499,10 +499,10 @@ bot.on("message", function(message) {
                 .addField("**>** Kullanıcı Adı", message.author.username, true)
                 .addField("**>** Kayıt Tarihi", message.author.createdAt, true)
                 if (message.author.bot) {
-                    embed.addField("Bot", "Evet", true)
+                    embed.addField("**>**Bot", "Evet", true)
                 }
                 else {
-                    embed.addField("Bot", "Hayır", true)
+                    embed.addField("**>**Bot", "Hayır", true)
                 }
                 embed.setColor(3447003)
                     .setThumbnail(message.author.avatarURL)
@@ -617,6 +617,40 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
+	case "robloxgrup":
+	    if (!args[1] == "") {
+		var robloxgrup = args.join(" ").replace("robloxgrup", "").replace("undefined", "").replace(" ", "")  
+		var robloxgrupid = ""
+		var robloxgrupname = ""
+		var robloxgrupowner = ""
+		var robloxgrupicon = ""
+		var robloxgrupdescription = ""
+		request.get("https://api.roblox.com/groups/" + robloxgrup, {host: "https://api.roblox.com/groups/" + robloxgrup}, function(err,res,body) {
+			var grupresponse = JSON.parse(body)
+			if (!grupresponse.errors) {
+				robloxgrupid = grupresponse.Id
+				robloxgrupname = grupresponse.Name
+				robloxgrupowner = grupresponse.Owner.Name
+				robloxgrupicon = grupresponse.EmblemUrl
+				robloxgrupdescription = grupresponse.Description
+				var embed = new Discord.RichEmbed()
+					.setAuthor(robloxgrupname, robloxgrupicon)
+					.addField("**>**ID", robloxgrupid, true)
+					.addField("**>**Sahibi", robloxgrupowner, true)
+					.addField("**>**Açıklama", robloxgrupdescription, true)
+					.setColor(3447003)
+                			.setFooter("Cube | SametTurkey#0286 | " + new Date())
+                			.setThumbnail(robloxgrupicon)
+				message.channel.send(embed);
+			}
+			else {
+				message.channel.send("**Grup bulunamadı!**");
+			}
+		}
+	    }
+	    else {
+		   message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
+	    }
         case "robloxavatar":
             if (!args[1] == "") {
                 var oyuncu = args.join(" ").replace("robloxavatar").replace(" ", "").replace(" ", "_").replace("undefined", "")
