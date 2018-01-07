@@ -631,17 +631,20 @@ bot.on("message", function(message) {
 				robloxgrupid = grupresponse.Id
 				robloxgrupname = grupresponse.Name
 				robloxgrupowner = grupresponse.Owner.Name
-				robloxgrupicon = grupresponse.EmblemUrl
 				robloxgrupdescription = grupresponse.Description
-				var embed = new Discord.RichEmbed()
-					.setAuthor(robloxgrupname, robloxgrupicon)
-					.addField("**>** ID", robloxgrupid, true)
-					.addField("**>** Sahibi", robloxgrupowner, true)
-					.addField("**>** Açıklama", robloxgrupdescription, true)
-					.setColor(3447003)
-                			.setFooter("Cube | SametTurkey#0286 | " + new Date())
-                			.setThumbnail(robloxgrupicon)
-				message.channel.send(embed);
+				request.get("https://www.roblox.com/group-thumbnails?params=%5B%7BgroupId:" + robloxgrupid + "%7D%5D", {host: "https://www.roblox.com/group-thumbnails?params=%5B%7BgroupId:" + robloxgrup + "%7D%5D"}, function(err,res,body) {
+					var grupiconresponse = JSON.parse(body)
+					robloxgrupicon = grupiconresponse.thumbnailUrl
+					var embed = new Discord.RichEmbed()
+						.setAuthor(robloxgrupname, robloxgrupicon)
+						.addField("**>** ID", robloxgrupid, true)
+						.addField("**>** Sahibi", robloxgrupowner, true)
+						.addField("**>** Açıklama", robloxgrupdescription, false)
+						.setColor(3447003)
+                				.setFooter("Cube | SametTurkey#0286 | " + new Date())
+                				.setThumbnail(robloxgrupicon)
+					message.channel.send(embed);
+				});
 			}
 			else {
 				message.channel.send("**Grup bulunamadı!**");
