@@ -307,6 +307,7 @@ bot.on("message", function(message) {
 		var steamrealname = ""
 		var steamcountry = ""
 		var steamavatar = ""
+		var steamfriends = ""
 		var steamgames = ""
                 request.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam, {"host": "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=D007A91AEECB430CED9666E886056870&vanityurl=" + steam}, function(err,res,body) { 
 			var responseid = JSON.parse(body)
@@ -321,16 +322,21 @@ bot.on("message", function(message) {
 					request.get("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid, {host: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
 						var responsegames = JSON.parse(body)
 						steamgames = responsegames.response.game_count
-						var embed = new Discord.RichEmbed()
-							.setAuthor(steamusername, steamavatar)
-							.addField("ID", steamid, true)
-							.addField("Gerçek İsim", steamrealname, true)
-							.addField("Ülke", steamcountry, true)
-							.addField("Oyun Sayısı", steamgames, true)
-							.setColor(3447003)
-							.setThumbnail(steamavatar)
-							.setFooter("Cube | SametTurkey#0286 | " + new Date())
-						message.channel.send(embed);
+						request.get("http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid, {host: "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=D007A91AEECB430CED9666E886056870&steamid=" + steamid}, function(err,res,body) {
+							var responsefriends = JSON.parse(body)
+							steamfriends = responsefriends.friendslist.friends[0].length
+							var embed = new Discord.RichEmbed()
+								.setAuthor(steamusername, steamavatar)
+								.addField("ID", steamid, true)
+								.addField("Gerçek İsim", steamrealname.replace("undefined", "Belirlenmedi"), true)
+								.addField("Ülke", steamcountry.replace("undefined", "Belirlenmedi"), true)
+								.addField("Arkadaş Sayısı", steamfriends, true)
+								.addField("Oyun Sayısı", steamgames, true)
+								.setColor(3447003)
+								.setThumbnail(steamavatar)
+								.setFooter("Cube | SametTurkey#0286 | " + new Date())
+							message.channel.send(embed);
+						}
 					});
 				});
 			}
