@@ -328,7 +328,7 @@ bot.on("message", function(message) {
 			else {
 				message.channel.send("**Şehir bulunamadı!**");
 			}
-		}
+		});
 	    }
 	    else {
 		    message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
