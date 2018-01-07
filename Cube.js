@@ -940,6 +940,7 @@ bot.on("message", function(message) {
                 "c!mcavatar <kullaniciadi> - Minecraft avatarını gösterir!" + os.EOL +
                 "c!mcbasarim <baslik> <yazi> - Minecraft başarımı oluşturur!" + os.EOL +
                 "c!mcskin <kullaniciadi> - Minecraft skinini gösterir!" + os.EOL +
+		"c!robloxgrup <id> - Roblox grubunu görüntüler!" + os.EOL + 
                 "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
                 .addField("**>**  API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
                 "c!hastebin <yazi> - Hastebin'e yazı yükler!" + os.EOL +
