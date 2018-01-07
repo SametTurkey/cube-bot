@@ -904,6 +904,7 @@ bot.on("message", function(message) {
                 "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
                 .addField("**>** API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
                 "c!hastebin <yazi> - Hastebin'e yazı yükler!" + os.EOL +
+		"c!havadurumu <sehir> - Şehirin hava durumunu görüntüler!"
 		"c!steam <kullanici> - Steam kullanıcısını bilgilerini görüntüler!" + os.EOL + 
                 "c!google <yazi> - Google araması yapar!")
                 .addField("**>** Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
