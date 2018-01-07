@@ -334,8 +334,14 @@ bot.on("message", function(message) {
 					});
 				});
 			}
+			else {
+				message.channel.send("**Kullanıcı bulunamadı!**");
+			}
                 });
             }
+	    else {
+		   message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
+	    }
             break
         case "google":
             if (!args[1] == "") {
