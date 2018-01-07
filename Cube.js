@@ -319,7 +319,7 @@ bot.on("message", function(message) {
 				havadurumuwindspeed = havadurumuresponse.wind.speed
 				var embed = new Discord.RichEmbed()
 					.setTitle(":sunny: " + havadurumuname)
-					.setDescription("Bilgiler %100 doğru olmayabilir!")
+					.setDescription("Bilgiler %100 doğru olmayabilir.")
 					.addField("ID", havadurumuid, true)
 					.addField("Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli").replace("clear sky", "Açık Hava").replace("overcast clouds", "Kapalı Bulutlar"), true)
 					.addField("Ülke", havadurumucountry, true)
