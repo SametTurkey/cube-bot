@@ -302,6 +302,7 @@ bot.on("message", function(message) {
 	case "havadurumu":
 	    if (!args[1] == "") {
 		var havadurumu = args.join(" ").replace("havadurumu", "").replace("undefined", "").replace(" ", "")
+		var havadurumuid = ""
 		var havadurumuname = ""
 		var havadurumudescription = ""
 		var havadurumucountry = ""
@@ -310,6 +311,7 @@ bot.on("message", function(message) {
 		request.get("http://api.openweathermap.org/data/2.5/weather?APPID=f4f00e4463cd080d8de2b99ff72c3526&q=" + havadurumu, {host: "http://api.openweathermap.org/data/2.5/weather?APPID=f4f00e4463cd080d8de2b99ff72c3526&q=" + havadurumu}, function(err,res,body) {
 			var havadurumuresponse = JSON.parse(body)
 			if (havadurumuresponse.cod == 200) {
+				havadurumuid = havadurumuresponse.id
 				havadurumuname = havadurumuresponse.name
 				havadurumudescription = havadurumuresponse.weather[0].description
 				havadurumucountry = havadurumuresponse.sys.country
@@ -317,6 +319,7 @@ bot.on("message", function(message) {
 				havadurumuwindspeed = havadurumuresponse.wind.speed
 				var embed = new Discord.RichEmbed()
 					.setTitle(":sunny: " + havadurumuname)
+					.addField("ID", havadurumuid)
 					.addField("Açıklama", havadurumudescription.replace("few clouds", "Az Bulutlu").replace("broken clouds", "Parçalı Bulutlu").replace("sunny", "Güneşli"), true)
 					.addField("Ülke", havadurumucountry, true)
 					.addField("Nem", havadurumuhumidity, true)
