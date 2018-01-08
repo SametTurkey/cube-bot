@@ -916,7 +916,7 @@ bot.on("message", function(message) {
             break
 	case "windows":
 	    var embed = new Discord.RichEmbed()
-	    	.setTitle("Windows")
+	    	.setTitle("<:windows:400026747741011968> Windows")
 	    	.setImage(WindowsResimleri[Math.floor(Math.random() * WindowsResimleri.length)])
 	    	.setColor(3447003)
 	    message.channel.send(embed);
