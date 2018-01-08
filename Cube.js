@@ -918,7 +918,9 @@ bot.on("message", function(message) {
 	    var embed = new Discord.RichEmbed()
 	    	.setTitle("Windows")
 	    	.setImage(WindowsResimleri[Math.floor(Math.random() * WindowsResimleri.length)])
+	    	.setColor(3447003)
 	    message.channel.send(embed);
+	    break
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
