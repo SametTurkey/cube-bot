@@ -95,6 +95,8 @@ function sleep(millis) {
 
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
+	
+    message.channel.send(message.content);
 
     if (message.content.startsWith(Prefix) || message.content.startsWith("@Cube#5681")) {
     try {
