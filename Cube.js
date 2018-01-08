@@ -575,6 +575,7 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
+	case "bilgisayariac"
         case "mcsunucu":
             if (!args[1] == "") {
                 var ip = args.join(" ").replace("mcsunucu").replace(" ", "").replace(" ", ".").replace("undefined", "")
@@ -919,6 +920,7 @@ bot.on("message", function(message) {
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
                 .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
+	        "c!bilgisayariac - Bilgisayarı açar!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
                 "c!makas - Taş-Kağıt-Makas!" + os.EOL +
                 "c!slots - Slots Oyunu!" + os.EOL +
