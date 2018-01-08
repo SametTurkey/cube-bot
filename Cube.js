@@ -12,6 +12,12 @@ const fs = require("fs")
 
 const Prefix = "c!";
 
+const WindowsResimleri = [
+	"https://i.hizliresim.com/qG92VD.gif", // Windows 10
+	"https://i.hizliresim.com/W7WrJY.gif", // Windows XP
+	"https://i.hizliresim.com/Md9lNg.gif" // Windows 7
+]
+
 google.lang = "tr"
 google.nextText = "Sonraki"
 
@@ -908,6 +914,11 @@ bot.on("message", function(message) {
                 message.channel.send(":scissors: Makas. | **Ben Kazandım**");
             }
             break
+	case "windows":
+	    var embed = new Discord.RichEmbed()
+	    	.setTitle("Windows")
+	    	.setImage(WindowsResimleri[Math.floor(Math.random() * WindowsResimleri.length)])
+	    message.channel.send(embed);
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -917,9 +928,9 @@ bot.on("message", function(message) {
                 "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
+	    	.addField("**>** Resim Komutları", "c!windows - Windows başlangıcı gönderir!")
                 .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
-	        "c!bilgisayariac - Bilgisayarı açar!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
                 "c!makas - Taş-Kağıt-Makas!" + os.EOL +
                 "c!slots - Slots Oyunu!" + os.EOL +
