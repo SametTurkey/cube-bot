@@ -96,17 +96,10 @@ function sleep(millis) {
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
-    if (message.content.startsWith(Prefix) || message.content.startsWith("@Cube#5681")) {
+    if (message.content.startsWith(Prefix)) {
     try {
 
-    var substring = 0
-    if (message.content.startsWith(Prefix)) {
-	 substring = 2   
-    }
-    else if (message.content.startsWith("@Cube#5681")) {
-	 substring = 11 
-    }
-    var args = message.content.substring(substring).split(" ")
+    var args = message.content.substring(Prefix.length).split(" ")
 
     switch (args[0].toLowerCase()) {
         case "adminduyuru":
