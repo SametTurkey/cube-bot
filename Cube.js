@@ -99,7 +99,14 @@ bot.on("message", function(message) {
     if (message.content.startsWith(Prefix) || message.content.startsWith("@Cube")) {
     try {
 
-    var args = message.content.substring(Prefix.length).substring("@Cube".length).split(" ")
+    var substring = 0
+    if (message.content.startsWith(Prefix)) {
+	 substring = 2   
+    }
+    else if (message.content.startsWith("@Cube#5681")) {
+	 substring = 11 
+    }
+    var args = message.content.substring(substring).split(" ")
 
     switch (args[0].toLowerCase()) {
         case "adminduyuru":
