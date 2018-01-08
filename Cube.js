@@ -96,7 +96,7 @@ function sleep(millis) {
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
-    if (message.content.startsWith(Prefix) || message.content.startsWith("@Cube")) {
+    if (message.content.startsWith(Prefix) || message.content.startsWith("@Cube#5681")) {
     try {
 
     var substring = 0
