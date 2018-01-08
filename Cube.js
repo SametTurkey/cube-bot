@@ -575,7 +575,6 @@ bot.on("message", function(message) {
                 message.channel.send("**Komut parametreleri eksik veya hatalı!**");
             }
             break
-	case "bilgisayariac"
         case "mcsunucu":
             if (!args[1] == "") {
                 var ip = args.join(" ").replace("mcsunucu").replace(" ", "").replace(" ", ".").replace("undefined", "")
