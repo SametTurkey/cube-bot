@@ -209,7 +209,7 @@ bot.on("message", function(message) {
             throw new Error("İsteğe bağlı hata verdirildi!")
             break
 	case "emoji":
-	    var emoji = args.join(" ").replace("emoji").replace(" ", "").replace("undefined", "").replace(new RegExp("a"), ":regional_indicator_a: ").replace(new RegExp("b"), ":regional_indicator_b: ").replace(new RegExp("c"), ":regional_indicator_c: ")
+	    var emoji = args.join(" ").replace("emoji").replace(" ", "").replace("undefined", "")
 	    message.channel.send(emoji);
 	    break
         case "bilgi":
