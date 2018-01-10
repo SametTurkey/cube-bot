@@ -209,7 +209,7 @@ bot.on("message", function(message) {
             throw new Error("İsteğe bağlı hata verdirildi!")
             break
 	case "emoji":
-	    var emoji = args.join(" ").replace("emoji").replace(" ", "").replace("undefined", "").replace("a", ":regional_indicator_a: ").replace("b", ":regional_indicator_b: ").replace("c", ":regional_indicator_c: ").replace("d", ":regional_indicator_d: ").replace("e", ":regional_indicator_e: ").replace("f", ":regional_indicator_f: ").replace("g", ":regional_indicator_g: ").replace("h", ":regional_indicator_h: ").replace("i", ":regional_indicator_i: ").replace("j", ":regional_indicator_j: ").replace("k", ":regional_indicator_k: ").replace("l", ":regional_indicator_l: ").replace("m", ":regional_indicator_m: ").replace("n", ":regional_indicator_n: ").replace("o", ":regional_indicator_o: ").replace("p", ":regional_indicator_p: ").replace("r", ":regional_indicator_r: ").replace("s", ":regional_indicator_s: ").replace("t", ":regional_indicator_t: ").replace("u", ":regional_indicator_u: ").replace("v", ":regional_indicator_v: ").replace("y", ":regional_indicator_y: ").replace("z", ":regional_indicator_z: ").replace("q", ":regional_indicator_q: ").replace("w", ":regional_indicator_w: ").replace("q", ":regional_indicator_q: ")
+	    var emoji = args.replace("emoji").replace(" ", "").replace("undefined", "").replace("a", ":regional_indicator_a:")
 	    message.channel.send(emoji);
 	    break
         case "bilgi":
