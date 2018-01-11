@@ -13,7 +13,7 @@ const fs = require("fs")
 const Prefix = "c!";
 
 const DevreDisiGuildler = [
-	"383974767742418949"
+	""
 ]
 
 const WindowsResimleri = [
