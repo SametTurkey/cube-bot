@@ -930,6 +930,7 @@ bot.on("message", function(message) {
                 "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
+	    	.addField("**>** Resim Komutları", "c!windows - Windows başlangıcı gönderir!")
                 .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
