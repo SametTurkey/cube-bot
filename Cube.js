@@ -12,6 +12,12 @@ const fs = require("fs")
 
 const Prefix = "c!";
 
+const WindowsResimleri = [
+ 	"https://i.hizliresim.com/qG92VD.gif", // Windows 10
+ 	"https://i.hizliresim.com/W7WrJY.gif", // Windows XP
+ 	"https://i.hizliresim.com/Md9lNg.gif" // Windows 7
+ ]
+
 google.lang = "tr"
 google.nextText = "Sonraki"
 
@@ -908,6 +914,13 @@ bot.on("message", function(message) {
                 message.channel.send(":scissors: Makas. | **Ben Kazandım**");
             }
             break
+	case "windows":
+ 	    var embed = new Discord.RichEmbed()
+ 	    	.setTitle("<:windows:400026747741011968> Windows")
+ 	    	.setImage(WindowsResimleri[Math.floor(Math.random() * WindowsResimleri.length)])
+ 	    	.setColor(3447003)
+ 	    message.channel.send(embed);
+ 	    break
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
