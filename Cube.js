@@ -430,12 +430,13 @@ bot.on("message", function(message) {
 	case "base64":
 	    if (!args[1] == "") {
 		   var base64 = args.join(" ").replace(args[0], "").replace("undefined", "") 
-		   var encrypted = new Buffer(base64.toString('base64'))
+		   var encrypted = new Buffer(base64).toString('base64')
 		   message.channel.send(encrypted);
 	    }
 	    else {
 		  message.channel.send("**Komut parametreleri eksik veya hatalı!**");  
 	    }
+	    break
         case "google":
             if (!args[1] == "") {
                 var googlearama = args.join(" ").replace(args[0], "").replace("undefined", "")
