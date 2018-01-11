@@ -431,7 +431,7 @@ bot.on("message", function(message) {
 	    if (!args[1] == "") {
 		   var base64 = args.join(" ").replace(args[0], "").replace("undefined", "") 
 		   var encrypted = new Buffer(base64).toString('base64')
-		   message.channel.send(encrypted);
+		   message.channel.send("**" + encrypted + "**");
 	    }
 	    else {
 		  message.channel.send("**Komut parametreleri eksik veya hatalı!**");  
@@ -1029,6 +1029,7 @@ bot.on("message", function(message) {
                 "c!google <yazi> - Google araması yapar!")
                 .addField("**>**  Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
                 "c!davetolustur - Davet oluşturur!" + os.EOL +
+		"c!base64 <yazi> - Yazıyı base64 şekline çevirir!" + os.EOL + 
                 "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
                 "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
                 "c!sunucuikon - Sunucu ikonunu gösterir!" + os.EOL +
