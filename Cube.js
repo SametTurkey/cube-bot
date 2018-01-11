@@ -925,7 +925,7 @@ bot.on("message", function(message) {
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setTitle("Yardım Komutları")
+                .setTitle("<:yardim:401040634745454597> Yardım Komutları")
                 .addField("**>**  Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
                 "c!sunucuduyuru <mesaj> - Sunucudaki bütün kanallara mesaj atar!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
