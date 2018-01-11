@@ -25,6 +25,15 @@ const CSGOResimleri = [
 	"https://i.hizliresim.com/z0E2Lg.gif"
 ]
 
+const AtaturkResimleri = [
+	"https://i.hizliresim.com/W7r6d8.jpg", // Atatürk
+	"https://i.hizliresim.com/3ER1dM.jpg", // Atatürk
+	"https://i.hizliresim.com/Rn6bqR.jpg", // Atatürk
+	"https://i.hizliresim.com/p6YmLa.jpg", // Atatürk
+	"https://i.hizliresim.com/kOY1lD.jpg", // Atatürk
+	"https://i.hizliresim.com/NZb97X.jpg"
+]
+
 google.lang = "tr"
 google.nextText = "Sonraki"
 
@@ -936,6 +945,13 @@ bot.on("message", function(message) {
  	    	.setColor(3447003)
  	    message.channel.send(embed);
  	    break
+	case "ataturk":
+ 	    var embed = new Discord.RichEmbed()
+ 	    	.setTitle("<:ataturk:401048704360120341> Atatürk")
+ 	    	.setImage(AtaturkResimleri[Math.floor(Math.random() * AtaturkResimleri.length)])
+ 	    	.setColor(3447003)
+ 	    message.channel.send(embed);
+ 	    break
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -945,7 +961,8 @@ bot.on("message", function(message) {
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
 	    	.addField("**>** Resim Komutları", "c!windows - Windows başlangıcı gönderir!" + os.EOL +
-		"c!csgo - CSGO gifleri gönderir!")
+		"c!csgo - CSGO gifleri gönderir!" + os.EOL + 
+		"c!ataturk - Atatürk resimleri gönderir!")
                 .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
