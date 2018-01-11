@@ -103,7 +103,7 @@ bot.on("message", function(message) {
 
     switch (args[0].toLowerCase().replace("ı", "i").replace("ü", "u").replace("ş", "s").replace("ç", "c")) {
         case "adminduyuru":
-            const mesaj = args.join(" ").replace("adminduyuru").replace(" ", "").replace("undefined", "")
+            const mesaj = args.join(" ").replace(args[0]).replace(" ", "").replace("undefined", "")
             if (message.author.id == "273453450019471361" || message.author.id == "293006152692662273" || message.author.id == "225925576551038977") {
                 bot.guilds.forEach(function(guild) {
                     if (guild.channels.first().type == "text") {
@@ -120,7 +120,7 @@ bot.on("message", function(message) {
             let member = message.mentions.members.first();
             if (!message.member.roles.some(r=>["BanMembers"].includes(r.name))) {
                 if (!args[1] == "") {
-                    const sebep = args.join(" ").replace("yasakla", "").replace(args[1], "")
+                    const sebep = args.join(" ").replace(args[0], "").replace(args[1], "")
                     if (!args[2] == "") {
                         if (!member) {
                             return message.channel.send("**Kullanıcı bulunamadı!**");
@@ -155,7 +155,7 @@ bot.on("message", function(message) {
             let atilacakmember = message.mentions.members.first();
             if (!message.member.roles.some(r=>["KickMembers"].includes(r.name))) {
                 if (!args[1] == "") {
-                    const sebep = args.join(" ").replace("yasakla", "").replace(args[1], "")
+                    const sebep = args.join(" ").replace(args[0], "").replace(args[1], "")
                     if (!args[2] == "") {
                         if (!atilacakmember) {
                             return message.channel.send("**Kullanıcı bulunamadı!**");
@@ -179,7 +179,7 @@ bot.on("message", function(message) {
             break
         case "tavsiye":
             if (!args[1] == "") {
-                var tavsiye = args.join(" ").replace("tavsiye").replace(" ", "").replace("undefined", "")
+                var tavsiye = args.join(" ").replace(args[0]).replace(" ", "").replace("undefined", "")
                 var webhook = new Discord.WebhookClient("396661614402600960", process.env.TAVSIYE_TOKEN)
                 var embed = new Discord.RichEmbed()
                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -279,7 +279,7 @@ bot.on("message", function(message) {
         case "oylama":
             if (!args[1] == "") {
                 if (message.member.roles.some(r=>["Administrator"].includes(r.name))) {
-                    var oylama = args.join(" ").replace("oylama", "").replace("undefined", "")
+                    var oylama = args.join(" ").replace(args[0], "").replace("undefined", "")
                     var embed = new Discord.RichEmbed()
                         .setAuthor("Oylama", message.guild.iconURL)
                         .addField("**>** Konu", oylama)
@@ -301,7 +301,7 @@ bot.on("message", function(message) {
             break
 	case "havadurumu":
 	    if (!args[1] == "") {
-		var havadurumu = args.join(" ").replace("havadurumu", "").replace("undefined", "").replace(" ", "")
+		var havadurumu = args.join(" ").replace(args[0], "").replace("undefined", "").replace(" ", "")
 		var havadurumuid = ""
 		var havadurumuname = ""
 		var havadurumudescription = ""
@@ -340,7 +340,7 @@ bot.on("message", function(message) {
 	    break
         case "steam":
             if (!args[1] == "") {
-                var steam = args.join(" ").replace("steam", "").replace("undefined", "").replace(" ", "")
+                var steam = args.join(" ").replace(args[0], "").replace("undefined", "").replace(" ", "")
                 var steamid = ""
 		var steamusername = ""
 		var steamrealname = ""
@@ -390,7 +390,7 @@ bot.on("message", function(message) {
             break
         case "google":
             if (!args[1] == "") {
-                var googlearama = args.join(" ").replace("google", "").replace("undefined", "")
+                var googlearama = args.join(" ").replace(args[0], "").replace("undefined", "")
                 var sonuclar = ""
                 google(googlearama, function(err, res) {
                     for (var i = 0; i < 1; ++i) {
@@ -408,7 +408,7 @@ bot.on("message", function(message) {
                 request.post({
                     headers: {"content-type":"text/plain"},
                     url: "https://hastebin.com/documents",
-                    form: args.join(" ").replace("hastebin", "")
+                    form: args.join(" ").replace(args[0], "")
                 }, function(error, response, body){
                     const result = JSON.parse(body)
                     message.channel.send(":white_check_mark: **Başarıyla Yüklendi: **`" + result.key + "`");
@@ -459,7 +459,7 @@ bot.on("message", function(message) {
             message.channel.send(embed)
             break
         case "konustur":
-            var konustur = args.join(" ").replace("konustur", "")
+            var konustur = args.join(" ").replace(args[0], "")
             if (!args[1] == "") {
                 message.delete()
                 message.channel.send(konustur);
@@ -549,7 +549,7 @@ bot.on("message", function(message) {
             if (!args[1] == "") {
                 if (!args[2] == "") {
                     var title = args[1].replace("ş", "s").replace("ç", "c").replace("ğ", "g").replace("ü", "u").replace("ı", "i").replace("Ş", "S").replace("Ç", "C").replace("Ğ", "G").replace("Ü", "U")
-                    var description = args.join(" ").replace("mcbasarim", "").replace(args[1], "").replace(" ", "").replace(" ", "").replace("ş", "s").replace("ç", "c").replace("ğ", "g").replace("ü", "u").replace("ı", "i").replace("Ş", "S").replace("Ç", "C").replace("Ğ", "G").replace("Ü", "U")
+                    var description = args.join(" ").replace(args[0], "").replace(args[1], "").replace(" ", "").replace(" ", "").replace("ş", "s").replace("ç", "c").replace("ğ", "g").replace("ü", "u").replace("ı", "i").replace("Ş", "S").replace("Ç", "C").replace("Ğ", "G").replace("Ü", "U")
                     var embed = new Discord.RichEmbed()
                         .setImage(url.parse("https://achievecraft.net/i/19.1/" + title + "/" + description + ".png").href)
                         .setColor(3447003)
@@ -565,7 +565,7 @@ bot.on("message", function(message) {
             break
         case "mcskin":
             if (!args[1] == "") {
-                var oyuncu = args.join(" ").replace("mcskin").replace(" ", "").replace(" ", "_").replace("undefined", "")
+                var oyuncu = args.join(" ").replace(args[0]).replace(" ", "").replace(" ", "_").replace("undefined", "")
                 var embed = new Discord.RichEmbed()
                     .setImage(url.parse("https://minotar.net/armor/body/" + oyuncu + "/" + "100.png").href)
                     .setColor(3447003)
@@ -577,7 +577,7 @@ bot.on("message", function(message) {
             break
         case "mcsunucu":
             if (!args[1] == "") {
-                var ip = args.join(" ").replace("mcsunucu").replace(" ", "").replace(" ", ".").replace("undefined", "")
+                var ip = args.join(" ").replace(args[0]).replace(" ", "").replace(" ", ".").replace("undefined", "")
                 request.get("https://api.mcsrvstat.us/1/" + ip, {"host": "https://api.mcsrvstat.us/1/" + ip}, function(err,res,body) { 
                     var json = JSON.parse(body)
                     if (!json.offline) {
@@ -619,7 +619,7 @@ bot.on("message", function(message) {
             break
 	case "robloxgrup":
 	    if (!args[1] == "") {
-		var robloxgrup = args.join(" ").replace("robloxgrup", "").replace("undefined", "").replace(" ", "")  
+		var robloxgrup = args.join(" ").replace(args[0], "").replace("undefined", "").replace(" ", "")  
 		var robloxgrupid = ""
 		var robloxgrupname = ""
 		var robloxgrupowner = ""
@@ -657,7 +657,7 @@ bot.on("message", function(message) {
 	    break
         case "robloxavatar":
             if (!args[1] == "") {
-                var oyuncu = args.join(" ").replace("robloxavatar").replace(" ", "").replace(" ", "_").replace("undefined", "")
+                var oyuncu = args.join(" ").replace(args[0]).replace(" ", "").replace(" ", "_").replace("undefined", "")
                 request.get("https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" + oyuncu, {"host": "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" + oyuncu, "followAllRedirects": true}, function(err,res,body) {
                     var embed = new Discord.RichEmbed()
                         .setImage(res.request.uri.href)
@@ -765,7 +765,7 @@ bot.on("message", function(message) {
             break
         case "sorusor":
             if (!args[1] == "") {
-                var soru = args.join(" ").replace("sorusor").replace(" ", "").replace("undefined", "")
+                var soru = args.join(" ").replace(args[0]).replace(" ", "").replace("undefined", "")
                 var cevaplar = [
                     "Evet",
                     "Hayır",
@@ -806,7 +806,7 @@ bot.on("message", function(message) {
             break
         case "sunucuduyuru":
             if (!args[1] == "") {
-                var duyuru = args.join(" ").replace("sunucuduyuru").replace(" ", "").replace("undefined", "")
+                var duyuru = args.join(" ").replace(args[0]).replace(" ", "").replace("undefined", "")
                 if (message.member.roles.some(r=>["Administrator"].includes(r.name))) {
                     message.guild.channels.forEach(function(channel) {
                         if (channel.type == "text") {
@@ -863,7 +863,7 @@ bot.on("message", function(message) {
             break
         case "twitch":
             if (!args[1] == "") {
-                var yayinci = args.join(" ").replace("twitch").replace(" ", "").replace("undefined", "")
+                var yayinci = args.join(" ").replace(args[0]).replace(" ", "").replace("undefined", "")
                 request.get("https://api.twitch.tv/kraken/streams/" + yayinci, {"host": "https://api.twitch.tv/kraken/streams/" + yayinci, headers: {"content-type": "application/vnd.twitchtv.v5+json", "Client-ID": "ds1ln5ziugn2v3yb44bhjf7mx24i8l"}}, function(err,res,body) { 
                     var json = JSON.parse(body)
                     if (json.stream !== null) {
