@@ -59,7 +59,7 @@ bot.on("ready", function(login) {
 });
 
 bot.on("guildCreate", function(guild) {
-    if (DevreDisiGuildler.hasOwnProperty(guild.id)) return;
+    if (DevreDisiGuildler.includes(guild.id)) return;
     if (guild.channels.first().type == "text") {
         guild.channels.first().send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW");
     }
@@ -97,21 +97,21 @@ bot.on("guildDelete", function(guild) {
 });
 
 bot.on("guildMemberAdd", function(member) {
-    if (DevreDisiGuildler.hasOwnProperty(member.guild.id)) return;
+    if (DevreDisiGuildler.includes(member.guild.id)) return;
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :inbox_tray: | **" + member.user.username + "** Sunucuya Giriş Yaptı!");
     }
 });
 
 bot.on("guildMemberLeave", function(member) {
-    if (DevreDisiGuildler.hasOwnProperty(member.guild.id)) return;
+    if (DevreDisiGuildler.includes(member.guild.id)) return;
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :outbox_tray: | **" + member.user.username + "** Sunucudan Ayrıldı!");
     }
 });
 
 bot.on("roleUpdate", function(oldrole, newrole) {
-    if (DevreDisiGuildler.hasOwnProperty(newrole.guild.id)) return;
+    if (DevreDisiGuildler.includes(newrole.guild.id)) return;
     if (newrole.guild.channels.first().type == "text") {
         if (newrole.name != oldrole.name || newrole.permissions != oldrole.permissions) {
              var embed = new Discord.RichEmbed()
