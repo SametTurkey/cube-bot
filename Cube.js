@@ -829,7 +829,7 @@ bot.on("message", function(message) {
             }
             break
         case "sunucuikon":
-	    if (!message.guild) return;
+	    if (!message.guild) return message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
             var embed = new Discord.RichEmbed()
                 .setImage(message.guild.iconURL)
                 .setColor(3447003)
