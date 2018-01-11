@@ -972,7 +972,8 @@ bot.on("message", function(message) {
                 message.react("🤖")
                 message.react("❔")
                 message.react("💖")
-                message.channel.send(embed);
+                message.author.send(embed);
+		message.channel.send("**<@" + message.author.id + ">, yardım komutlarını direkt mesaj olarak yolladım!** :mailbox_with_mail:");
                 break
         case "yazitura":
             var yazitura = message.channel.send("<:yazi:383974767742418949>").then((msg) => {
