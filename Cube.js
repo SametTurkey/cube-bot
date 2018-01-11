@@ -829,6 +829,7 @@ bot.on("message", function(message) {
             }
             break
         case "sunucuikon":
+	    if (!message.guild) return;
             var embed = new Discord.RichEmbed()
                 .setImage(message.guild.iconURL)
                 .setColor(3447003)
