@@ -101,7 +101,7 @@ bot.on("message", function(message) {
 
     var args = message.content.substring(Prefix.length).split(" ")
 
-    switch (args[0].toLowerCase()) {
+    switch (args[0].toLowerCase().replace("ı", "i").replace("ü", "u").replace("ş", "s").replace("ç", "c")) {
         case "adminduyuru":
             const mesaj = args.join(" ").replace("adminduyuru").replace(" ", "").replace("undefined", "")
             if (message.author.id == "273453450019471361" || message.author.id == "293006152692662273" || message.author.id == "225925576551038977") {
