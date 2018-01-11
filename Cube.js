@@ -927,7 +927,6 @@ bot.on("message", function(message) {
                 .setTitle("Yardım Komutları")
                 .addField("**>**  Moderasyon Komutları", "c!at <kullanici> - Kullanıcıyı Atar!" + os.EOL + 
                 "c!sunucuduyuru <mesaj> - Sunucudaki bütün kanallara mesaj atar!" + os.EOL +
-                "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
 	    	.addField("**>** Resim Komutları", "c!windows - Windows başlangıcı gönderir!")
