@@ -12,12 +12,6 @@ const fs = require("fs")
 
 const Prefix = "c!";
 
-const WindowsResimleri = [
-	"https://i.hizliresim.com/qG92VD.gif", // Windows 10
-	"https://i.hizliresim.com/W7WrJY.gif", // Windows XP
-	"https://i.hizliresim.com/Md9lNg.gif" // Windows 7
-]
-
 google.lang = "tr"
 google.nextText = "Sonraki"
 
@@ -89,7 +83,7 @@ bot.on("roleUpdate", function(oldrole, newrole) {
             .addField("**>**  Yeni Rol Yetkileri", newrole.permissions, true)
             .setColor(3447003)
             .setThumbnail(newrole.guild.iconURL)
-            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+            .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             newrole.guild.channels.first().send(embed);
         }
     }
@@ -140,7 +134,7 @@ bot.on("message", function(message) {
                                 .addField("**>**  **YASAKLAYAN: **" + "<@" + message.author.id + ">", "**SEBEP: **" + sebep)
                                 .setColor(3447003)
                                 .setThumbnail(message.author.avatarURL)
-                                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                             member.user.send(embed);
                         }
                         else {
@@ -192,7 +186,7 @@ bot.on("message", function(message) {
                     .addField("**>**  Tavsiye", tavsiye)
                     .setColor(3447003)
                     .setThumbnail(message.author.avatarURL)
-                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 webhook.send(embed);
                 message.channel.send(":white_check_mark: **Tavsiyeniz `" + tavsiye + "` başarıyla gönderildi!**");
             }
@@ -202,16 +196,12 @@ bot.on("message", function(message) {
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setColor(3447003)
                 .setImage(message.author.avatarURL)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             message.channel.send(embed)
             break
         case "hataverdirme":
             throw new Error("İsteğe bağlı hata verdirildi!")
             break
-	case "emoji":
-	    var emoji = args.join(" ").replace("emoji").replace(" ", "").replace("undefined", "")
-	    message.channel.send(emoji);
-	    break
         case "bilgi":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -223,7 +213,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Cube Davet Linki", "https://bit.ly/CubeDiscord")
                 .setColor(3447003)
                 .setThumbnail(bot.user.avatarURL)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             message.channel.send(embed)
             break
         case "bol":
@@ -283,7 +273,7 @@ bot.on("message", function(message) {
                 // .setAuthor(message.author.username, message.author.avatarURL)
                 // .addField("**>** Mesajlar", levels[message.guild.id][message.author.id].level)
                 // .setColor(3447003)
-                // .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                // .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             // message.channel.send(embed);
             // break
         case "oylama":
@@ -294,7 +284,7 @@ bot.on("message", function(message) {
                         .setAuthor("Oylama", message.guild.iconURL)
                         .addField("**>** Konu", oylama)
                         .setColor(3447003)
-                        .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                        .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                     message.channel.send(embed).then((oylamamessage) =>
                     {
                         oylamamessage.react("✅")
@@ -336,7 +326,7 @@ bot.on("message", function(message) {
 					.addField("**>** Nem", havadurumuhumidity, true)
 					.addField("**>** Rüzgar Hızı", havadurumuwindspeed, true)
 					.setColor(3447003)
-					.setFooter("Cube | SametTurkey#0286 | " + new Date())
+					.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
 				message.channel.send(embed);
 			}
 			else {
@@ -383,7 +373,7 @@ bot.on("message", function(message) {
 								.addField("**>** Oyun Sayısı", steamgames, true)
 								.setColor(3447003)
 								.setThumbnail(steamavatar)
-								.setFooter("Cube | SametTurkey#0286 | " + new Date())
+								.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
 							message.channel.send(embed);
 						});
 					});
@@ -436,7 +426,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Platform", os.type(), true)
                 .setColor(3447003)
                 .setThumbnail(bot.user.avatarURL)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             message.channel.send(embed)
             break
         case "kagit":
@@ -465,7 +455,7 @@ bot.on("message", function(message) {
                 embed.addField("**>**  Oluşturuldu", message.channel.createdAt, true)
                 .setColor(3447003)
                 .setThumbnail(message.guild.iconURL)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             message.channel.send(embed)
             break
         case "konustur":
@@ -495,7 +485,7 @@ bot.on("message", function(message) {
                         }
                         embed.setColor(3447003)
                         .setThumbnail(memberinfo.user.avatarURL)
-                        .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                        .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                     message.channel.send(embed)
                 }
                 else {
@@ -516,7 +506,7 @@ bot.on("message", function(message) {
                 }
                 embed.setColor(3447003)
                     .setThumbnail(message.author.avatarURL)
-                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 message.channel.send(embed)
             }
             break
@@ -527,7 +517,7 @@ bot.on("message", function(message) {
                 .addField("**>**  :point_right: Argo Yasaktır", "**---------------------------------**")
                 .addField("**>**  :point_right: Reklam Yasaktır", "**---------------------------------**")
                 .setColor(3447003)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
             message.channel.send(embed)
             break
         case "makas":
@@ -614,7 +604,7 @@ bot.on("message", function(message) {
                             .addField("**>**  Yazılım", serverSoftware, true)
                             .addField("**>**  Port", serverPort, true)
                             .setColor(3447003)
-                            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                            .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                             .setThumbnail("https://use.gameapis.net/mc/query/icon/" + ip)
                         message.channel.send(embed)
                     }
@@ -651,7 +641,7 @@ bot.on("message", function(message) {
 						.addField("**>** Sahibi", robloxgrupowner, true)
 						.addField("**>** Açıklama", robloxgrupdescription, false)
 						.setColor(3447003)
-                				.setFooter("Cube | SametTurkey#0286 | " + new Date())
+                				.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 				.setThumbnail(robloxgrupicon)
 					message.channel.send(embed);
 				});
@@ -787,7 +777,7 @@ bot.on("message", function(message) {
                     .addField("**>**  Soru", soru, false)
                     .addField("**>**  Cevap", cevaplar[Math.floor(Math.random() * cevaplar.length)], true)
                     .setColor(3447003)
-                    .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                    .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 message.channel.send(embed)
             }
             else {
@@ -810,7 +800,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Sakıncalı İçerik Filtresi", message.guild.explicitContentFilter.toString().replace("true", "Etkin").replace("false", "Devre Dışı"), true)
                 .addField("**>**  Oluşturulma Tarihi", message.guild.createdAt, false)
                 .setColor(3447003)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 .setThumbnail(message.guild.iconURL)
             message.channel.send(embed)
             break
@@ -892,7 +882,7 @@ bot.on("message", function(message) {
                             .addField("**>**  İzleyici", channelStreamViewers, true)
                             .setImage(channelStreamPreview)
                             .setColor(3447003)
-                            .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                            .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                             .setThumbnail(channelUserImage)
                         message.channel.send(embed)
                     }
@@ -918,13 +908,6 @@ bot.on("message", function(message) {
                 message.channel.send(":scissors: Makas. | **Ben Kazandım**");
             }
             break
-	case "windows":
-	    var embed = new Discord.RichEmbed()
-	    	.setTitle("<:windows:400026747741011968> Windows")
-	    	.setImage(WindowsResimleri[Math.floor(Math.random() * WindowsResimleri.length)])
-	    	.setColor(3447003)
-	    message.channel.send(embed);
-	    break
         case "yardim":
             var embed = new Discord.RichEmbed()
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -934,7 +917,6 @@ bot.on("message", function(message) {
                 "c!onek <onek> - Sunucu için ön eki değiştirir!" + os.EOL +
                 "c!temizle <sayi> - Sayı kadar mesaj temizler!" + os.EOL + 
                 "c!yasakla <kullanici> <sebep> - Kullanıcıyı sunucudan yasaklar!")
-	    	.addField("**>** Resim Komutları", "c!windows - Windows başlangıcı gönderir!")
                 .addField("**>**  Eğlence Komutları", "c!avatar - Avatarınızı Gösterir!" + os.EOL +
                 "c!kagit - Taş-Kağıt-Makas!" + os.EOL +
                 "c!konustur <mesaj> - Botu konuşturur!" + os.EOL +
@@ -958,7 +940,6 @@ bot.on("message", function(message) {
                 "c!mcavatar <kullaniciadi> - Minecraft avatarını gösterir!" + os.EOL +
                 "c!mcbasarim <baslik> <yazi> - Minecraft başarımı oluşturur!" + os.EOL +
                 "c!mcskin <kullaniciadi> - Minecraft skinini gösterir!" + os.EOL +
-		"c!robloxgrup <id> - Roblox grubunu görüntüler!" + os.EOL + 
                 "c!robloxavatar <kullaniciadi> - Roblox avatarını gösterir!")
                 .addField("**>**  API Komutları", "c!twitch <kullaniciadi> - Yayın durumunu gösterir!" + os.EOL +
                 "c!hastebin <yazi> - Hastebin'e yazı yükler!" + os.EOL +
@@ -972,7 +953,7 @@ bot.on("message", function(message) {
                 "c!sunucuikon - Sunucu ikonunu gösterir!" + os.EOL +
                 "c!zaman - Şimdiki zamanı gösterir!")
                 .setColor(3447003)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 .setThumbnail(bot.user.avatarURL)
                 message.react("🤖")
                 message.react("❔")
@@ -1014,7 +995,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Saat", new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(), true)
                 .addField("**>**  Tarih", new Date(), false)
                 .setColor(3447003)
-                .setFooter("Cube | SametTurkey#0286 | " + new Date())
+                .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
                 .setThumbnail(bot.user.avatarURL)
             message.channel.send(embed);
             break
@@ -1119,4 +1100,4 @@ bot.on("message", function(message) {
     }
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login("Mzg2OTEzMzkwNzc5NDMyOTYw.DSF5Yg.S2NRVQUBPUJBv30CKfw21NfTMqU");
