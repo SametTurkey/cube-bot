@@ -960,7 +960,8 @@ bot.on("message", function(message) {
             break
 	case "ping":
 	    var ping = message.channel.send("Ping!").then((pinglatency) => {
-		    pinglatency.edit("**Gecikme Süresi: `" + pinglatency.createdTimestamp - message.createdTimestamp + "ms`**")
+		    var latency = pinglatency.createdTimestamp - message.createdTimestamp
+		    pinglatency.edit("**Gecikme Süresi: `" + latency + "ms`**")
 	    });
 	    break
 	case "windows":
