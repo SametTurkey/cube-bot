@@ -958,6 +958,11 @@ bot.on("message", function(message) {
                 message.channel.send(":scissors: Makas. | **Ben Kazandım**");
             }
             break
+	case "ping":
+	    var ping = message.channel.send("Ping!").then((pinglatency => {
+		    pinglatency.edit(pinglatency.createdTimestamp - message.createdTimestamp + "ms")
+	    });
+	    break
 	case "windows":
  	    var embed = new Discord.RichEmbed()
  	    	.setTitle("<:windows:400026747741011968> Windows")
