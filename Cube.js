@@ -12,6 +12,13 @@ const fs = require("fs")
 
 const Prefix = "c!";
 
+const clean = text => {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
+
 const DevreDisiGuildler = [
 	"264445053596991498"
 ]
@@ -431,11 +438,12 @@ bot.on("message", function(message) {
 	    if (args[1] == "") {
 		  if (message.author.id == "273453450019471361" || message.author.id == "293006152692662273" || message.author.id == "225925576551038977") {
 			var evalcommand = args.join(" ").replace(args[0], "").replace("undefined", "") 
-			var evaled = eval(evalcommand)
-			if (typeof evaled !== "string") {
-				evaled = require("util").inspect(evaled)
-			}
-			message.channel.send(evaled.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203))
+			var evaled = eval(code);
+
+      			if (typeof evaled !== "string")
+        			evaled = require("util").inspect(evaled);
+
+      			message.channel.send(clean(evaled), {code:"xl"});
 		  }
 		  else {
 			  message.delete()
