@@ -427,6 +427,21 @@ bot.on("message", function(message) {
 		   message.channel.send("**Komut parametreleri eksik veya hatalı!**"); 
 	    }
             break
+	case "eval":
+	    if (args[1] == "") {
+		  if (message.author.id == "273453450019471361" || message.author.id == "293006152692662273" || message.author.id == "225925576551038977") {
+			var evalcommand = args.join(" ").replace(args[0], "").replace("undefined", "") 
+			var evaled = eval(evalcommand)
+			if (typeof evaled !== "string") {
+				evaled = require("util").inspect(evaled)
+			}
+			message.channel.send(evaled.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203))
+		  }
+		  else {
+			  message.delete()
+		  }
+	    }
+	    break
 	case "base64":
 	    if (!args[1] == "") {
 		   var base64 = args.join(" ").replace(args[0], "").replace("undefined", "") 
