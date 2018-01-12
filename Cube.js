@@ -1036,7 +1036,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
                 "c!davetolustur - Davet oluşturur!" + os.EOL +
 		"c!base64 <yazi> - Yazıyı base64 şekline çevirir!" + os.EOL + 
-		"c!ping - Botun pingini görüntüler!" + os.EOL + 
+		"c!ping - Botun gecikmesini görüntüler!" + os.EOL + 
                 "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
                 "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
                 "c!sunucuikon - Sunucu ikonunu gösterir!" + os.EOL +
