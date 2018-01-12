@@ -959,7 +959,7 @@ bot.on("message", function(message) {
             }
             break
 	case "ping":
-	    var ping = message.channel.send("Ping!").then((pinglatency => {
+	    var ping = message.channel.send("Ping!").then((pinglatency) => {
 		    pinglatency.edit(pinglatency.createdTimestamp - message.createdTimestamp + "ms")
 	    });
 	    break
