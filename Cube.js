@@ -108,6 +108,17 @@ bot.on("guildMemberAdd", function(member) {
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :inbox_tray: | **" + member.user.username + "** Sunucuya Giriş Yaptı!");
     }
+    if (member.guild.channels.find("name", "cube-log")) {
+	   var embed = new Discord.RichEmbed()
+	   	.setAuthor(member.username, member.avatarURL)
+	   	.setTitle(":inbox_tray: Sunucuya Katıldı")
+	   	.addField("ID", member.id, true)
+	   	.addField("Kayıt Tarihi", member.createdAt, false)
+	   	.setColor(3447003)
+            	.setThumbnail(newrole.guild.iconURL)
+            	.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
+	   member.guild.channels.find("name", "cube-log").send(embed);
+    }
 });
 
 bot.on("guildMemberLeave", function(member) {
@@ -115,13 +126,39 @@ bot.on("guildMemberLeave", function(member) {
     if (member.guild.channels.first().type == "text") {
         member.guild.channels.first().send("| :outbox_tray: | **" + member.user.username + "** Sunucudan Ayrıldı!");
     }
+    if (member.guild.channels.find("name", "cube-log")) {
+	   var embed = new Discord.RichEmbed()
+	   	.setAuthor(member.username, member.avatarURL)
+	   	.setTitle(":inbox_tray: Sunucuya Katıldı")
+	   	.addField("ID", member.id, true)
+	   	.addField("Son Mesaj Tarihi", member.lastMessage.createdAt, false)
+	   	.setColor(3447003)
+            	.setThumbnail(newrole.guild.iconURL)
+            	.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
+	   member.guild.channels.find("name", "cube-log").send(embed);
+    }
 });
 
 bot.on("roleUpdate", function(oldrole, newrole) {
     if (DevreDisiGuildler.includes(newrole.guild.id)) return;
-    if (newrole.guild.channels.first().type == "text") {
+    if (!newrole.guild.channels.find("name", "cube-log")) {
         if (newrole.name != oldrole.name || newrole.permissions != oldrole.permissions) {
-             var embed = new Discord.RichEmbed()
+	     if (newrole.guild.channels.first().type == "text") {
+		 var embed = new Discord.RichEmbed()
+            		.setAuthor("Rol Güncellemesi", newrole.guild.iconURL)
+            		.addField("**>**  Eski Rol İsmi", oldrole.name, true)
+            		.addField("**>**  Eski Rol Yetkileri", oldrole.permissions, true)
+            		.addField("**>**  Yeni Rol İsmi", newrole.name, true)
+            		.addField("**>**  Yeni Rol Yetkileri", newrole.permissions, true)
+            		.setColor(3447003)
+            		.setThumbnail(newrole.guild.iconURL)
+            		.setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
+            	newrole.guild.channels.first().send(embed);
+	     }
+        }
+    }
+    else {
+	 var embed = new Discord.RichEmbed()
             .setAuthor("Rol Güncellemesi", newrole.guild.iconURL)
             .addField("**>**  Eski Rol İsmi", oldrole.name, true)
             .addField("**>**  Eski Rol Yetkileri", oldrole.permissions, true)
@@ -130,8 +167,7 @@ bot.on("roleUpdate", function(oldrole, newrole) {
             .setColor(3447003)
             .setThumbnail(newrole.guild.iconURL)
             .setFooter("Cube | SametTurkey#0286 | " + new Date(), bot.user.avatarURL)
-            newrole.guild.channels.first().send(embed);
-        }
+         newrole.guild.channels.find("name", "cube-log").send(embed);   
     }
 });
 
