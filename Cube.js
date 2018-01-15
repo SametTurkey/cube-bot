@@ -1218,13 +1218,13 @@ bot.on("message", function(message) {
 			if (results.length == 1) {
 				sql = "SELECT reklamengelle FROM servers WHERE id=`" + message.guild.id + "`"
 				con.query(sql, function(err, results) {
-					if (results[0].reklamengelle == true]) {
+					if (results[0].reklamengelle == true) {
 					    reklamengelle = true
 					}
 				});
 				sql = "SELECT linkengelle FROM servers WHERE id=`" + message.guild.id + "`"
 				con.query(sql, function(err, results) {
-					if (results[0].linkengelle == true]) {
+					if (results[0].linkengelle == true) {
 						linkengelle = true
 					}
 				});
@@ -1233,7 +1233,7 @@ bot.on("message", function(message) {
 				sql = "INSERT INTO servers (id) VALUES (" + message.guild.id + ")"
 				con.query(sql, function(err) {
 					if (err) throw new Error(err)
-				}
+				});
 			}
         	});
     	});
