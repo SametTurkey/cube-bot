@@ -1216,13 +1216,13 @@ bot.on("message", function(message) {
         	con.query(sql, function(err, results) {
             		if (err) throw new Error(err);
 			if (results.length == 1) {
-				sql = "SELECT reklamengelle FROM servers WHERE id=`" + message.guild.id + "`"
+				sql = "SELECT * FROM servers WHERE id=" + message.guild.id
 				con.query(sql, function(err, results) {
 					if (results[0].reklamengelle == true) {
 					    reklamengelle = true
 					}
 				});
-				sql = "SELECT linkengelle FROM servers WHERE id=`" + message.guild.id + "`"
+				sql = "SELECT * FROM servers WHERE id=" + message.guild.id
 				con.query(sql, function(err, results) {
 					if (results[0].linkengelle == true) {
 						linkengelle = true
