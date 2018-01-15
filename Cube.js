@@ -19,6 +19,14 @@ function clean(text) {
       return text;
 }
 
+var con = mysql.createConnection({
+    host: process.env.VERITABANI_IP,
+    port: 3307,
+    user: process.env.VERITABANI_KULLANICI,
+    password: process.env.VERITABANI_PAROLA,
+    database: "cubediscord"
+});
+
 const DevreDisiGuildler = [
 	"264445053596991498"
 ]
@@ -1201,18 +1209,50 @@ bot.on("message", function(message) {
     }
 
     if (message.content.toLowerCase().indexOf("https") > -1 || message.content.toLowerCase().indexOf("http") > -1) {
+	var linkengelle = false
+	var reklamengelle = false
+	con.connect(function(err) {
+        	var sql = "SELECT * FROM servers WHERE id=`" + message.guild.id + "`"
+        	con.query(sql, function(err, results) {
+            		if (err) throw new Error(err);
+			if (results.length == 1) {
+				sql = "SELECT reklamengelle FROM servers WHERE id=`" + message.guild.id + "`"
+				con.query(sql, function(err, results) {
+					if (results[0].reklamengelle == true]) {
+					    reklamengelle = true
+					}
+				});
+				sql = "SELECT linkengelle FROM servers WHERE id=`" + message.guild.id + "`"
+				con.query(sql, function(err, results) {
+					if (results[0].linkengelle == true]) {
+						linkengelle = true
+					}
+				});
+ 		}
+			else {
+				sql = "INSERT INTO servers (id) VALUES (" + message.guild.id + ")"
+				con.query(sql, function(err) {
+					if (err) throw new Error(err)
+				}
+			}
+        	});
+    	});
         if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
             if (message.author.bot == false) {
-                message.react("😡")
-                message.delete()
-                message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
+		if (reklamengelle) {
+			message.react("😡")
+                	message.delete()
+                	message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
+		}
             }
         }
         else {
             if (message.author.bot == false) {
-                message.react("😡")
-                message.delete()
-                message.channel.send("<@" + message.author.id + ">, **lütfen URL'leri özelden paylaş!**");
+		if (linkengelle) {
+			message.react("😡")
+                	message.delete()
+                	message.channel.send("<@" + message.author.id + ">, **lütfen URL'leri özelden paylaş!**");
+		}
             }
         }
     }
