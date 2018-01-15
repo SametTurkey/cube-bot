@@ -76,7 +76,7 @@ bot.on("ready", function(login) {
 bot.on("guildCreate", function(guild) {
     if (DevreDisiGuildler.includes(guild.id)) return;
     if (guild.channels.first().type == "text") {
-        guild.channels.first().send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW");
+                guild.channels.first().send("Beni sunucunuza eklediğiniz için teşekkür ederim! Birkaç bilgi istiyorsanız :robot:, " + os.EOL + "**-** `c!yardim` komutu size komutları gösterir." + os.EOL + "**-** `c!bilgi` komutu size bot hakkında bilgi verir." + os.EOL + "**-** Ayrıca botumuzun discord sunucusunada katılmayı unutmayın! https://discord.gg/eEm46bW" + os.EOL + os.EOL + "Bazı Ayarlar: " + os.EOL + "**Küfür Kapalı** adında rol oluşturarak küfürleri engelleyebilirsiniz." + os.EOL + "**Reklam Kapalı** adında rol oluşturarak reklamları engelleyebilirsiniz." + os.EOL + "**URL Kapalı** adında rol oluşturarak urlleri engelleyebilirsiniz.");
     }
     //var con = mysql.createConnection({
     //    host: process.env.VERITABANI_IP,
@@ -1202,56 +1202,33 @@ bot.on("message", function(message) {
 
     if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
         if (!message.author.bot) {
-            message.react("😡")
-            message.delete()
-            message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
+		if (!message.guild) return;
+		if (message.guild.roles.find("name", "Reklam Kapalı")) {
+			message.react("😡")
+			message.delete()
+			message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
+		}
         }
     }
 
     if (message.content.toLowerCase().indexOf("https") > -1 || message.content.toLowerCase().indexOf("http") > -1) {
-	var linkengelle = false
-	var reklamengelle = false
-	con.connect(function(err) {
-        	var sql = "SELECT * FROM servers WHERE id=`" + message.guild.id + "`"
-        	con.query(sql, function(err, results) {
-            		if (err) throw new Error(err);
-			if (results.length == 1) {
-				sql = "SELECT * FROM servers WHERE id=" + message.guild.id
-				con.query(sql, function(err, results) {
-					if (results[0].reklamengelle == true) {
-					    reklamengelle = true
-					}
-				});
-				sql = "SELECT * FROM servers WHERE id=" + message.guild.id
-				con.query(sql, function(err, results) {
-					if (results[0].linkengelle == true) {
-						linkengelle = true
-					}
-				});
- 		}
-			else {
-				sql = "INSERT INTO servers (id) VALUES (" + message.guild.id + ")"
-				con.query(sql, function(err) {
-					if (err) throw new Error(err)
-				});
-			}
-        	});
-    	});
         if (message.content.toLowerCase().indexOf("discord.gg/") > -1) {
             if (message.author.bot == false) {
-		if (reklamengelle) {
+		if (!message.guild) return;
+		if (message.guild.roles.find("name", "Reklam Kapalı")) {
 			message.react("😡")
-                	message.delete()
-                	message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
+			message.delete()
+			message.channel.send("<@" + message.author.id + ">, **lütfen reklam yapma!**");
 		}
             }
         }
         else {
             if (message.author.bot == false) {
-		if (linkengelle) {
+		if (!message.guild) return;
+		if (message.guild.roles.find("name", "URL Kapalı")) {
 			message.react("😡")
-                	message.delete()
-                	message.channel.send("<@" + message.author.id + ">, **lütfen URL'leri özelden paylaş!**");
+			message.delete()
+			message.channel.send("<@" + message.author.id + ">, **lütfen URL'leri özelden paylaş!**");
 		}
             }
         }
