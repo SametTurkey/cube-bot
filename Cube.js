@@ -69,8 +69,8 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(login) {
     var kullanicisayisi = 0
-    for (var i = 0, len = bot.guilds; i < len; i++) {
-	 kullanicisayisi = kullanicisayisi + bot.guilds[i].memberCount   
+    bot.guilds.forEach(function(guild) {
+	 kullanicisayisi = kullanicisayisi + guild.memberCount   
     }
     console.log("Hazır!");
     console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
@@ -96,8 +96,8 @@ bot.on("guildCreate", function(guild) {
     //    });
     //});
     var kullanicisayisi = 0
-    for (var i = 0, len = bot.guilds; i < len; i++) {
-	 kullanicisayisi = kullanicisayisi + bot.guilds[i].memberCount   
+    bot.guilds.forEach(function(guild) {
+	 kullanicisayisi = kullanicisayisi + guild.memberCount   
     }
     bot.user.setGame("c!yardim | 1/1 | " + bot.guilds.size + " sunucu!"  + kullanicisayisi + " kullanici!", 'https://www.twitch.tv/turkishtr2', 1);
 });
@@ -117,8 +117,8 @@ bot.on("guildDelete", function(guild) {
     //    });
     //});
     var kullanicisayisi = 0
-    for (var i = 0, len = bot.guilds; i < len; i++) {
-	 kullanicisayisi = kullanicisayisi + bot.guilds[i].memberCount   
+    bot.guilds.forEach(function(guild) {
+	 kullanicisayisi = kullanicisayisi + guild.memberCount   
     }
     bot.user.setGame("c!yardim | 1/1 | " + bot.guilds.size + " sunucu!"  + kullanicisayisi + " kullanici!", 'https://www.twitch.tv/turkishtr2', 1);
 });
