@@ -69,7 +69,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(login) {
     console.log("Hazır!");
-    console.log(bot.user.username + "#5681 ismiyle giriş yapıldı!");
+    console.log(bot.user.username + "#" + bot.user.discriminator + " ismiyle giriş yapıldı!");
     bot.user.setGame("c!yardim | 1/1 | " + bot.guilds.size + " sunucu!", 'https://www.twitch.tv/turkishtr2', 1);
 });
 
@@ -186,7 +186,7 @@ function sleep(millis) {
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
-    if (message.content.startsWith(serverPrefix)) {
+    if (message.content.startsWith(Prefix)) {
     try {
 
     var args = message.content.substring(Prefix.length).split(" ")
