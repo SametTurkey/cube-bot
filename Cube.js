@@ -7,7 +7,9 @@ const url = require("url")
 const delay = require("delay")
 const mysql = require("mysql")
 const google = require("google")
+const sha256 = require("crypto-js/sha256")
 const fs = require("fs")
+require("dotenv").config()
 // const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
@@ -498,7 +500,17 @@ bot.on("message", function(message) {
 	    if (!args[1] == "") {
 		   var base64 = args.join(" ").replace(args[0], "").replace("undefined", "") 
 		   var encrypted = new Buffer(base64).toString('base64')
-		   message.channel.send("**" + encrypted + "**");
+		   message.channel.send(":white_check_mark: **" + encrypted + "**");
+	    }
+	    else {
+		  message.channel.send("**Komut parametreleri eksik veya hatalı!**");  
+	    }
+	    break
+	case "sha256":
+	    if (!args[1] == "") {
+		   var sha256text = args.join(" ").replace(args[0], "").replace("undefined", "") 
+		   var encrypted = sha256(sha256text)
+		   message.channel.send(":white_check_mark: **" + encrypted + "**");
 	    }
 	    else {
 		  message.channel.send("**Komut parametreleri eksik veya hatalı!**");  
@@ -901,6 +913,7 @@ bot.on("message", function(message) {
             }
             break
         case "sunucubilgisi":
+	    if (!message.guild) return message.channel.send("**Özel mesaj ile bu komut kullanılamaz!**");
             var embed = new Discord.RichEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .addField("**>**  ID", message.guild.id, true)
@@ -1103,6 +1116,7 @@ bot.on("message", function(message) {
                 .addField("**>**  Diğer Komutlar", "c!tavsiye <mesaj> - Tavsiye gönderir!" + os.EOL + 
                 "c!davetolustur - Davet oluşturur!" + os.EOL +
 		"c!base64 <yazi> - Yazıyı base64 şekline çevirir!" + os.EOL + 
+		"c!sha256 <yazi> - Yazıyı sha256 şekline çevirir!" + os.EOL + 
 		"c!ping - Botun gecikmesini görüntüler!" + os.EOL + 
                 "c!sarkiturkce - Türkçe şarkı ismi önerir!" + os.EOL +
                 "c!sarkiyabanci - Yabancı şarkı ismi önerir!" + os.EOL +
