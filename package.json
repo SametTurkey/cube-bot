@@ -4,6 +4,7 @@
   "description": "Cube Discord Bot",
   "main": "Cube.js",
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "delay": "^2.0.0",
     "discord.js": "^11.2.1",
     "google": "^2.1.0",
