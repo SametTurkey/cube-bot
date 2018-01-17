@@ -9,7 +9,6 @@ const mysql = require("mysql")
 const google = require("google")
 const sha256 = require("crypto-js/sha256")
 const fs = require("fs")
-require("dotenv").config()
 // const levels = JSON.parse(fs.readFileSync("./levels.json", "utf8"))
 
 const Prefix = "c!";
